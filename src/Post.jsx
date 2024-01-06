@@ -1,3 +1,4 @@
+import './style.css'
 export function Post (props) {
     return (
         <>
