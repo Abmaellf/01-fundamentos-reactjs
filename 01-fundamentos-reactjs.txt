@@ -1,0 +1,596 @@
+	Inicio 2 de janeiro de 2024
+	
+	Github
+				
+	git config  user.name "Abmaellf"
+        git config  user.email "abmael.ninha@gmail.com"
+        git branch -M main
+        
+        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
+
+==========================================================================================================================================	
+==========================================================================================================================================
+	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 2-Fundamentos do ReactJS
+	REACT 	Biblioteca Javascript para criar interfaces de usuários
+	
+	RENDERING PATTERNS
+	
+		SSR - Server Side Rendering :
+		
+				 - Uma aplicação
+				 -  paginas staticas geradas no servidor
+		
+		SPA - Single Page Application:
+		
+				 -  Duas aplicações Front  e back
+				 -  paginas geradas pelo client
+				 -  JSON (Javascript Object Notation)
+				 
+		
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 3-Bundlers & Compilers
+	
+		Os browser não suporte esse javascript mais moderno
+		
+		Compilers : Compiladores de codigos, ferramentas que convertem de um codigo para outro
+		
+			Babel
+		
+		Bundlers : Queremos distribuir nossa aplicação em vários arquivos javascript, mas não é suportado pelos browser
+		
+			Webpack
+			
+		Criando o projeto pelo vite NÃO PRECISAMOS USAR O WEBPACK E O BABEL
+		
+		
+	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 4-Criando um projeto React
+		
+		Meu node -v    v18.17.1
+		Meu npm -v 9.6.7
+		
+		Node Diego  v16.15.0 LTS
+		NPM do Diego npm -v 8.5.5
+		Sugestão de um node version manager do Diego  é o " n"
+		
+		Eu uso o nvm
+		
+		##Criar o projeto
+			
+		Projeto criado com o	npm create vite@latest
+							yarn create vite
+						
+		Nome do projeto 01-fundamentos-reactjs
+		
+		## Executar npm i
+		
+		## Agora npm run dev
+		
+		### Conteudo extra trocando a porta de execução do projeto vite
+		
+		### Acessaro vite.config.js
+		
+		### FastRefresh  existe por padrão no vite
+		
+		### Remover todos os arquivos da pasta source
+		
+		Apenas app.jsx   e main.jsx
+			
+			app.jsx
+			
+					
+
+						function App() {
+
+						  return (
+						   <h1>Hello Wold</h1>
+						  )
+						}
+
+						export default App
+
+			main.jsx
+			
+				
+					import React from 'react'
+					import ReactDOM from 'react-dom/client'
+					import App from './App.jsx'
+
+					ReactDOM.createRoot(document.getElementById('root')).render(
+					  <React.StrictMode>
+					    <App />
+					  </React.StrictMode>,
+					)
+
+		Como o react esta renderizando  o 
+	
+	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 5-Componentes
+	
+		1 - Componentes
+		
+			É uma forma de desacoplar um pedacinho de nossa interface, tornando repetitivel, para melhor dar manutenção
+			
+			O  App no react é um component que é uma função e devem ter extesão jsx que é javascript + xml 
+			- É uma função
+			- Retorna um html
+			-  Deve ser exportado
+			
+			++ Vamos criar um componente chamdo Post
+					
+					function Post () {
+					    return (
+						<h1>Hello Post </h1>
+					    )
+					} 
+					export default Post;
+					
+			++ Ajustando  o app para receber o component Post
+			
+					import Post from './Post';
+
+					function App() {
+
+					  return (
+					     	      <Post/>
+					      )
+					}
+
+					export default App
+
+			+++  Poderiamos ter várias chamadas do component Post ou ter outros component , mas não podemos se não tiver alguma tag envolvendo os components
+			+++  Então precisamos colocar uma tag div, p, h1 ... etc ou um fragment  <> </>
+			
+					import Post from './Post';
+
+						function App() {
+
+						  return (
+						    <>
+						      <Post/>
+						      <Post/>
+						      <Post/>
+						    </>
+						  )
+						}
+
+					export default App
+
+	#### Podemos exportar o component Post de outra forma
+			1 - Named Export
+			*** O nome da função deve ser exatamente o que será importado, evitando esquecer de alterar o nome
+			
+				export function ...
+				
+			2 - Export default
+			
+					export default App
+	
+	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 6-Propriedades	
+	
+		+++++   Definindo propriedades no Post
+		
+				import { Post } from './Post';
+
+				export function App() {
+
+				  return (
+				    <>
+				      <Post 
+					author="loren igfdfggggggggggggglogm"
+					content="Conteudo"
+				      />
+				    </>
+				  )
+				}
+
+	+++++  Definindo a propriendade em cada component Post utilizado no app
+	
+				import { Post } from './Post';
+
+				export function App() {
+
+				  return (
+				    <>
+				      <Post 
+					author="Abmael"
+					content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
+				      />Propriedades
+				      <Post
+					author="Rafael"
+					content="Conteudo Conteudo Conteudo Conteudo Conteudo"
+				      />
+				    </>
+				  )
+				}
+
+
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 	1-CSS Modules
+	
+	 Derntro da pasta src vammos criar uma arquivo chamdo styles.css
+	 
+	 		body {
+				    background: #121214;
+				}
+	### Se for feito a importação desse arquivo no html o mesmo já vai renderizar a pagina com esse fundo
+	### Mas algo muito importante é que 	no react não fazemos importanção do css no html, é  sempre pelo javascript
+	### Dessa forma vamos acessar o nosso component Post e adicionar a importação
+	
+		import './style.css'
+			export function Post (props) {
+			    return (
+				<>content
+				   <strong> <p> {props.author} </p> </strong>
+				    <p> {props.content} </p>
+				</>
+			    )
+			} 
+		
+ 	### Scoped Css  css escopado
+ 	
+ 		Vamos utilizar o css module'
+	
+	### Vamos criar uma pasta chamada components
+	### Dentro dessa pasta components vamos criar um component chamado Header.jsx     sempre com a primeira letra maiuscula
+	
+		// Importação sempre nomeada com o from
+		// no react a class agora será className e o valor da classe será entre chaves sem aspas
+		
+		### Criamos um arquivo chamado Header.module.css
+	
+				.header {
+						    background: #333;
+						    height: 80px;
+						}	
+		     import style from './Header.module.css';
+
+			    export function Header () {
+				return(
+				    <header className={style.header}>
+					<strong>Ignite Feed</strong>
+				    </header>
+				)
+			    }
+					
+	
+	commit						
+	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 2-CSS global
+	
+		## Vamos criar alguns stilos globais
+		## Vamos renomear o nosso style.css para global.css
+		## E trocar as importações no app
+		
+		## Vamos editar o global.css				
+				:root {
+				    --white: #ffffff;
+				    --gray-100:#e1e1e6;
+				    --gray-300:#c4c4cc;
+				    --gray-400:#8d8d99;
+				    --gray-600:#323238;
+				    --gray-700:#29292e;
+				    --gray-800:#202024;
+				    --gray-900:#121214;
+
+				    --gren-500: #00875f
+				}
+
+				* {
+				    margin: 0;
+				    padding: 0;
+				    box-sizing: border-box;
+				}
+
+				body {
+				    background: var(--gray-900);
+				    color: var(var(--gray-300));
+				    -webkit-font-smoothing: antialiased;
+				}
+				
+				body, input, textarea, button {
+				font-family: 'Roboto', sans-serif;
+			        font-weight: 400;
+			        font-size: 1rem;
+			 }
+				
+		
+		
+		Vamos procurar pela font robot no google fonts
+		
+			https://fonts.google.com/specimen/Roboto
+		
+				<link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">	
+		## Vamos adicionar essa font no head do  index.html
+		
+		## observação: esses fontes precisam ser as primeiras a pos o meta charset
+		
+		
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|  	3-Componente. Header					
+		
+		## Vamos acessar o Header.module.css	e fazer algumas alterações
+	
+			 .header {
+			    background: var(--gray-800);
+			    display: flex;
+			    justify-content: center;
+			    padding: 1.25rem 0;
+			}
+					
+	Acessamos o figma :
+	https://www.figma.com/file/vHECPKU1eaRfRDfVkyJSgj/Ignite-Feed-(Community)-Abmael?type=design&mode=design&t=mBXEltbDMFTmAZxI-0
+	
+	E exportamos a imagem do header
+	## Salvamos a imagem dentro do projeto na pasta src / assets
+	
+	## Em Header.jsx
+	
+	Vamos importar  de forma nomeada, por dentro do javascript
+		import igniteLogo from '../assets/Ignite-logo.svg'
+		
+	## Vamos dar um console.log para identificar o endereço
+	
+					    import style from './Header.module.css';
+					    import igniteLogo from '../assets/Ignite-logo.svg'
+					    
+					    console.log(igniteLogo);
+
+					    export function Header () {
+						return(
+						    <header className={style.header}>
+							<strong>Ignite Feed</strong>
+						    </header>
+						)
+					    }
+		
+	### Mostra um caminho e é esse que vamos colocar em nosso img
+	
+			    import style from './Header.module.css';
+			    import igniteLogo from '../assets/Ignite-logo.svg'
+
+			    console.log(igniteLogo);
+
+			    export function Header () {
+				return(
+				    <header className={style.header}>
+				       <img src={igniteLogo} alt='Ignate logo' />
+				    </header>
+				)
+			    }	
+	
+	## A imagem ficou grande, para isso vamos acessar o Header.module.css é istilizar o .header img
+	
+		.header {
+		    background: var(--gray-800);
+		    display: flex;
+		    justify-content: center;
+		    padding: 1.25rem 0;
+		}
+		.header img {
+		    height: 2rem;
+		}
+			
+			
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 4-Componente. Sidebar
+	
+		##  Em App.jsx
+			Vamos recorta todas as chamadas do nosso componente Post
+			
+		##	Vamos  criar uma div 
+				  <div className='wrapper'></div>
+				  
+		## Para isso vamos criar um estilo App.module.css
+		
+		## Nós podemos importar um arquivo css global e um não global
+		
+					import { Post } from './Post';
+					import { Header } from './components/Header';
+					import styles from './App.module.css'
+
+					import './global.css'
+
+					export function App() {
+					
+						. . .
+						
+		## Agora no App.module.css	vamos criar a estilização
+		
+				.wrapper {
+				    
+				}
+						
+		## Em nosso App.jsx na nossa div, vamos adicionar a className={style.wrapper}, veja que não utilizamos aspas e sim chaves
+		
+						import { Post } from './Post';
+						import { Header } from './components/Header';
+						import styles from './App.module.css';
+
+						import './global.css'
+
+						export function App() {
+
+						  return (
+						    <>
+						      <Header/>
+
+						      <div className={styles.wrapper}>
+
+						      </div>	
+	
+	
+	      ###  Incluindo o asaide e organizando a main
+	      
+	      				'		import { Post } from './Post';
+							import { Header } from './components/Header';
+							import styles from './App.module.css';
+
+							import './global.css'
+
+							export function App() {
+
+							  return (
+							    <>
+							      <Header/>
+
+							      <div className={styles.wrapper}>
+
+								<aside>
+									sidebar
+								</aside>
+								
+								<main>
+								      <Post 
+									author="Abmael"
+									content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
+								      />
+								    
+								      <Post
+									author="Rafael"
+									content="Conteudo Conteudo Conteudo Conteudo Conteudo"
+								      />  
+
+								</main>
+							      </div>
+
+							     
+							   </>
+							  )
+							}
+
+
+			### Vamos estilizar o App.module.css
+			
+				.wrapper {
+					  max-width: 70rem;
+					  margin: 2rem auto;
+					  padding: 0 1rem;
+
+					  display: grid;
+					  grid-template-columns: 256px 1fr;
+					  gap: 2rem;
+					  align-items: flex-start;
+				} 
+	###Na pasta components vamos criar o component para a sidebar  Sidebar.jsx
+			import styles from './Sidebar.module.css'
+
+			export function Sidebar() {
+			    return (
+				<aside className={styles.sidebar}> </aside>
+			    )
+			}
+	
+	### Agora na pasta conponents vamos criar a stilização para a sidebar  criando o arquivo Sidebar.module.css
+	
+			.sidebar {
+			    background: red;   //exemplo para ver se esta estilizando
+			    height: 80px;         //exemplo para ver se esta estilizando
+			}	
+				
+	
+	### No component App vamos trocar  o:
+	
+								<aside>
+									sidebar
+								</aside>
+		Pelo component Sidebar
+		
+							<Sidebar />
+							
+		O React é formado pela soma de vários pequenos components, e quando são unidos forma a interface					
+							
+							
+	### Agora no nosso component Sidebar, vamos adicionar:
+	
+					import styles from './Sidebar.module.css'
+
+					export function Sidebar() {
+					    return (
+						<aside className={styles.sidebar}> 
+						    <img src="https://plus.unsplash.com/premium_photo-1661593486413-d279b1a02e28
+								      ?q=50&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+						
+						    <div className={styles.profile}>
+							<strong> Abmael Ferreira</strong>   
+							<span>Web Developer</span>
+						    </div>
+
+						    <footer>
+							<a href="#">
+							    Editar seu perfil  
+							</a>
+						    </footer>
+						</aside>
+					    )   
+					}						
+									
+	### Agora vamos estilizar o nosso Sidebar.module.css
+	
+						.sidebar {
+						    background: var(--gray-800);
+						    border-radius: 8px;
+						    overflow: hidden;
+						}
+
+						.cover {
+						    width: 100%;
+						    height: 72px;
+						    object-fit: cover;
+						}
+
+						.profile {
+						    display: flex;
+						    flex-direction: column;
+						    align-items: center;
+						}
+
+						.sidebar footer {
+						    border-top: 1px solid var(--gray-600);
+						    margin-top: 1.5rem;
+						    padding: 1.5rem 2rem 2rem;
+						}
+
+						.sidebar footer a {
+						    background: transparent;
+						    color: var(--green-500);
+						    border: 1px solid var(--green-500);
+						    height: 50px;
+						    padding: 0 1.5rem;
+						    font-weight: bold;
+						    display: block;
+						    text-decoration: none;
+
+						    display: flex;
+						    align-items: center;
+						    justify-content: center;
+						}						
+							
+							
+							
+							
+							
+							
+							
+							
+							
+		
+			
+								
+	
+	
