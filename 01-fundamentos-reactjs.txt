@@ -81,9 +81,7 @@
 			
 			app.jsx
 			
-					
-
-						function App() {
+					function App() {
 
 						  return (
 						   <h1>Hello Wold</h1>
@@ -254,23 +252,24 @@
 						}	
 		     import style from './Header.module.css';
 
-			    export function Header () {
-				return(
-				    <header className={style.header}>
-					<strong>Ignite Feed</strong>
-				    </header>
-				)
-			    }
+				    export function Header () {
+					return(
+					    <header className={style.header}>
+						<strong>Ignite Feed</strong>
+					    </header>
+					)
+				    }
 					
 	
 	commit						
 	
 ==========================================================================================================================================
 ==========================================================================================================================================	
-	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 2-CSS global
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   2-CSS global
 	
 		## Vamos criar alguns stilos globais
 		## Vamos renomear o nosso style.css para global.css
+			Precisa atualizar a pagina F5
 		## E trocar as importações no app
 		
 		## Vamos editar o global.css				
@@ -314,6 +313,7 @@
 				<link rel="preconnect" href="https://fonts.googleapis.com">
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">	
+				
 		## Vamos adicionar essa font no head do  index.html
 		
 		## observação: esses fontes precisam ser as primeiras a pos o meta charset
@@ -391,6 +391,7 @@
 	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 4-Componente. Sidebar
 	
 		##  Em App.jsx
+		
 			Vamos recorta todas as chamadas do nosso componente Post
 			
 		##	Vamos  criar uma div 
@@ -488,6 +489,7 @@
 					  align-items: flex-start;
 				} 
 	###Na pasta components vamos criar o component para a sidebar  Sidebar.jsx
+	
 			import styles from './Sidebar.module.css'
 
 			export function Sidebar() {
@@ -581,16 +583,171 @@
 						    justify-content: center;
 						}						
 							
-							
-							
-							
-							
-							
-							
-							
-							
-		
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|  5-Finalizando Sidebar						
 			
+		## Em   src/components/Sidebar.jsx				
+							
+		## Continuando a construir o nosso sidebar, vamos adicionar a imagem do perfil do usuario
+		## Então antes da tag strong que é o nome do perfil vamos adicionar a nossa tag img
+		
+			++ DICA  podemos pegar a url de perfil do github e adicionar  o ponto png que automaticamente será carregado a imagem de perfil
+			
+			URL DO PERFIL =  https://github.com/Abmaellf
+			Mais
+			PONTO. PNG
+			
+			FICARÁ DESSA FORMA=  https://github.com/Abmaellf.png
+			
+			https://avatars.githubusercontent.com/u/39870227?v=4		
+			
+			++ Vamos adicionar esse novo endereço dentro de src	
+			++ Vamos adicionar um className={styles.avatar}
+			
+				... 
+					
+					    <div className={styles.profile}>
+						<img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+						<strong> Abmael Ferreira</strong>   
+						<span>Web Developer</span>
+					    </div>
+				... 
+				
+		 ## Agora em src/components/Sidebar.module.css
+		 
+		 	Vamos estilizar o .avatar 
+		 		Mas antes adicionamos uma magem no .profile
+		 		
+		 				.profile {
+							    display: flex;
+							    flex-direction: column;
+							    align-items: center;
+							    margin-top: -2rem;
+							}
+							
+				+++ Logo apos o avatar
+				
+					 		.avatar {
+								    width: 3ren;
+								    height: 3rem;
+								    border-radius: 8px; 
+								     border:  4px solid var(--gray-800);
+    								     outline: 2px solid var(--green-500);
+								}	
 								
+								
+							.profile strong {
+							    margin-top: 1rem;
+							    color: var(--gray-100);
+							    line-height: 1.6;
+							}
+
+							.profile span {
+							    font-size: 0.875rem;
+							    color: var(--gray-400);
+							    line-height: 1.6;
+							}				
+											
+				+++ vamos utilizar a biblioteca phosphoricons.com		
+				
+				### vamos acessar o Explore icons e escolher o icone pencil-line
+				
+				### Vamos instalar a biblioteca primeiro
+				
+				+++ Vamo acessar abaixo do get start o github
+				
+				https://github.com/phosphor-icons/homepage
+				## Navegar até na sessão react e vamos instalar a biblioteca phosphor-icons/react
+				npm i @phosphor-icons/react
+				
+				### Vamoa acessar a Siderbar.jsx
+				
+				E vamos fazer a importação do phosphor-icons/react
+					
+							## ATENÃO SÓ FOI POSSÍVEL INSTALANDO A VERSÃO ANTIGA
+							
+							
+							 npm i phosphor-react 		
+							import { PencilLine } from 'phosphor-react'
+			
+			### Vamos acessar  src/components/Sidebar.jsx						
+			
+				E dentro do footer apos o href vamos adicionar o nosso PencilLine
+						...
+							<footer>
+								<a href="#">
+								    <PencilLine />
+
+								    Editar seu perfil  
+								</a>
+							    </footer>
+							    
+					...		    
+							    
+			### Agora vamos acessar a estilizaão do Sidebar   src/components/Sidebar.module.css
+			
+					E no .sidebar footer a  {
+					
+						... 
+							  gap: 0.75rem
+
+
+			### Aumentando o 	tamanho do icone
+			
+				NO src/components/Sidebar.jsx
+				
+					podemos passar dentro do componente PencilLine o size={20}
+			## Mas com isso o nosso texto não cabe dentro do box, para isso precisamos redizir o gap na estilização
+				
+										
+					.sidebar footer a {
+					    background: transparent;
+					    color: var(--green-500);
+					    border: 1px solid var(--green-500);
+					    height: 50px;
+					    padding: 0 1.5rem;
+					    font-weight: bold;
+					    display: block;
+					    text-decoration: none;
+
+					    display: flex;
+					    align-items: center;
+					    justify-content: center;
+
+					    gap: 0.5rem
+					}
+
+
+		### Adicionando o hover na footer sidebar
+		
+					.sidebar footer a:hover {
+					    background: var(--green-500);
+					    color: var(--white);
+					}					
 	
+		###  Adicionando uma transiçção no houver
+			 Em src/components/Sidebar.module.css
+								
+					.sidebar footer a {
+					    background: transparent;
+					    color: var(--green-500);
+					    border: 1px solid var(--green-500);
+					    border-radius: 8px;
+					    height: 50px;
+					    padding: 0 1.5rem;
+					    font-weight: bold;
+					    display: block;
+					    text-decoration: none;
+
+					    display: flex;
+					    align-items: center;
+					    justify-content: center;
+
+					    gap: 0.5rem;
+
+					    transition: color 0.1s, background-color 0.1s;
+					}
+							
+			
 	
