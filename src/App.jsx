@@ -1,9 +1,9 @@
-import { Post } from './Post';
+import { Post } from './components/Post';
 import { Header } from './components/Header';
 import styles from './App.module.css';
+import { Sidebar } from './components/Sidebar';
 
 import './global.css'
-import { Sidebar } from './components/Sidebar';
 
 export function App() {
 
@@ -20,11 +20,11 @@ export function App() {
                 author="Abmael"
                 content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
               />
-            
-              <Post
-                author="Rafael"
-                content="Conteudo Conteudo Conteudo Conteudo Conteudo"
-              />  
+              <Post 
+                author="Abmael"
+                content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
+              />
+              
 
         </main>
       </div>

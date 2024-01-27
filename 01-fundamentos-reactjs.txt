@@ -1,12 +1,14 @@
 	Inicio 2 de janeiro de 2024
 	
+	ESSE ARQUIVO SEMPRE ESTARÁ DENTRO DO PROJETO E COM O NOME DO PROJETOS 
+	
 	Github
 				
 	git config  user.name "Abmaellf"
         git config  user.email "abmael.ninha@gmail.com"
         git branch -M main
         
-        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
+       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
 
 ==========================================================================================================================================	
 ==========================================================================================================================================
@@ -174,21 +176,20 @@
 ==========================================================================================================================================	
 	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 6-Propriedades	
 	
-		+++++   Definindo propriedades no Post
+		No component Post vamos definir as propriedade que devem ser passado quando o componente for chamado
 		
-				import { Post } from './Post';
-
-				export function App() {
-
-				  return (
-				    <>
-				      <Post 
-					author="loren igfdfggggggggggggglogm"
-					content="Conteudo"
-				      />
-				    </>
-				  )
-				}
+											
+							export function Post (props) {
+							    return (
+								<>
+								   <strong> <p> {props.author} </p> </strong>
+								    <p> {props.content} </p>
+								</>
+							    )
+							    
+							} 
+	
+		
 
 	+++++  Definindo a propriendade em cada component Post utilizado no app
 	
@@ -241,8 +242,7 @@
 	### Vamos criar uma pasta chamada components
 	### Dentro dessa pasta components vamos criar um component chamado Header.jsx     sempre com a primeira letra maiuscula
 	
-		// Importação sempre nomeada com o from
-		// no react a class agora será className e o valor da classe será entre chaves sem aspas
+		
 		
 		### Criamos um arquivo chamado Header.module.css
 	
@@ -250,6 +250,12 @@
 						    background: #333;
 						    height: 80px;
 						}	
+						
+		### Dentro do arquivo Header.jsx vamos importar o css
+		
+		// Importação sempre nomeada com o from
+		// no react a class agora será className e o valor da classe será entre chaves sem aspas				
+						
 		     import style from './Header.module.css';
 
 				    export function Header () {
@@ -373,7 +379,7 @@
 				)
 			    }	
 	
-	## A imagem ficou grande, para isso vamos acessar o Header.module.css é istilizar o .header img
+	## A imagem ficou grande, para isso vamos acessar o Header.module.css é estilizar o .header img
 	
 		.header {
 		    background: var(--gray-800);
@@ -452,28 +458,26 @@
 
 							      <div className={styles.wrapper}>
 
-								<aside>
-									sidebar
-								</aside>
+									<aside>
+										sidebar
+									</aside>
 								
-								<main>
-								      <Post 
-									author="Abmael"
-									content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
-								      />
-								    
-								      <Post
-									author="Rafael"
-									content="Conteudo Conteudo Conteudo Conteudo Conteudo"
-								      />  
+									<main>
+									      <Post 
+										author="Abmael"
+										content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
+									      />
+									    
+									      <Post
+										author="Rafael"
+										content="Conteudo Conteudo Conteudo Conteudo Conteudo"
+									      />  
 
-								</main>
-							      </div>
-
-							     
-							   </>
-							  )
-							}
+									</main>
+							      </div> <!-- Fim da div wrapper -->
+						   </>
+						  )
+						}
 
 
 			### Vamos estilizar o App.module.css
@@ -524,21 +528,28 @@
 
 					export function Sidebar() {
 					    return (
-						<aside className={styles.sidebar}> 
-						    <img src="https://plus.unsplash.com/premium_photo-1661593486413-d279b1a02e28
-								      ?q=50&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-						
-						    <div className={styles.profile}>
-							<strong> Abmael Ferreira</strong>   
-							<span>Web Developer</span>
-						    </div>
+					           <aside className={styles.sidebar}> 
+						            <img 
+							   className={styles.cover} 
+							   src="https://plus.unsplash.com/premium_photo-1661593486413-d279b1a02e28?
+							   q=50&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+						            />
+					        
 
-						    <footer>
-							<a href="#">
-							    Editar seu perfil  
-							</a>
-						    </footer>
-						</aside>
+						            <div className={styles.profile}>
+
+							   <strong> Abmael Ferreira</strong>   
+							   <span>Web Developer</span>
+						            </div>
+
+						            <footer>
+							   <a href="#">
+							       <PencilLine size={20} />
+
+							       Editar seu perfil  
+							   </a>
+						            </footer>
+					        </aside>
 					    )   
 					}						
 									
@@ -626,7 +637,7 @@
 							    margin-top: -2rem;
 							}
 							
-				+++ Logo apos o avatar
+				+++ Logo apos o .profile
 				
 					 		.avatar {
 								    width: 3ren;
@@ -749,5 +760,122 @@
 					    transition: color 0.1s, background-color 0.1s;
 					}
 							
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   6-Componente. Post	
+	
+	##### Vamos deletar o component Post que criamos nas aulas anteriores que serviu de exemplo
+	
+	#####  Dentro da pasta components vamos criar 2 arquivos o Post.jsx    e o  Post.module.css
+	
+	##### ATENÇÃO PARA A DICA
+		
+			EXISTE A VONTADE DE SEPARA EM MAIS PASTAS, MAS O DIEGO FALA QUE TENTAR EVITAR A OTIMIZAÇÃO PREMATURA, OU SEJA NA MAIORIA DOS PROJETOS TENTAMOS
+			CRIAR UMA ESTRUTURA DE PASTAS MAIS ROBUSTAS DO QUE O PROJETO PRECISA
+	
+			IMPORTANTE É CONTEUDO NOMENCLATURA
 			
+	##### Em src/components/Post.jsx
+	
+		Vamos criar uma estrutura basica
+		
+			export function Post () {
+			    return (
+
+			        <h1>Hello Post</h1>
+			    )
+			}	
+		
+	##### Em src/components/Post.module.css
+		Vamos adicionar apenas um classe .post
+		
+			.post {
+			    
+			}		
+	
+	##### Em src/App.jsx
+	
+		Vamos ajustar a importação do component Post
+		
+			De    :  import { Post } from './Post';
+			Para :  import { Post } from './components/Post';
+			
+	##### Em src/components/Post.jsx
+	
+		Vamos começar a criar a estrutura geralmente começando com o HTML depois para o css e depois funcionamento
+		
+		Vamos envolvertudo em um article e vamos construir a header
+		
+						import styles from './Post.module.css';
+
+						export function Post () {
+						    return (
+						        <article className={styles.post}>
+						            <header>
+							   <div className={styles.author}>
+							       <img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+							       <div className={styles.authorInfo}>
+							           <strong> Abmael Ferreira</strong>
+							           <span> Web Develop</span>
+							       </div>
+							   </div>
+						            </header>
+						        </article>
+						    )      
+						}
+
+	##### Vamos adicionar uma tag html chamada time
+		  
+						import styles from './Post.module.css';
+
+						export function Post () {
+						    return (
+						        <article className={styles.post}>
+						            <header>
+							   <div className={styles.author}>
+							       <img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+							       <div className={styles.authorInfo}>
+							           <strong> Abmael Ferreira</strong>
+							           <span> Web Develop</span>
+							       </div>
+							   </div>
+
+							   <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h</time>
+						            </header>
+						        </article>
+						    )      
+						}
+
+  	##### Agora vamos 
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+				
 	
