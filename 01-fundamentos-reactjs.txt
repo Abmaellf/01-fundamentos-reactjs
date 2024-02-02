@@ -849,6 +849,7 @@
 						    )      
 						}
 
+<<<<<<< HEAD
   	##### Agora vamos construir abaixo de nossa reader o conteudo do post
   	
   	git commit --amend -m" feat(1-2 6-Componente. Post)"
@@ -977,6 +978,40 @@
 		 --green-300: #00B37E;
 	
 			
+=======
+  	##### Agora vamos 
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+				
+>>>>>>> 8d56624380df1a1d72e190ad7f6336fda46c3972
 	
 		
 	
