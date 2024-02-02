@@ -62,8 +62,7 @@
 		
 		##Criar o projeto
 			
-		Projeto criado com o	npm create vite@latest
-							yarn create vite
+		Projeto criado com o	 npm create vite@latest                OU 	yarn create vite
 						
 		Nome do projeto 01-fundamentos-reactjs
 		
@@ -220,9 +219,9 @@
 	 
 	 		body {
 				    background: #121214;
-				}
+			}
 	### Se for feito a importação desse arquivo no html o mesmo já vai renderizar a pagina com esse fundo
-	### Mas algo muito importante é que 	no react não fazemos importanção do css no html, é  sempre pelo javascript
+	### Mas algo muito importante é que no react não fazemos importanção do css no html, é  sempre pelo javascript
 	### Dessa forma vamos acessar o nosso component Post e adicionar a importação
 	
 		import './style.css'
@@ -400,7 +399,9 @@
 		
 			Vamos recorta todas as chamadas do nosso componente Post
 			
-		##	Vamos  criar uma div 
+		##	Vamos  criar uma div  após o companent Header
+				
+				<Header />
 				  <div className='wrapper'></div>
 				  
 		## Para isso vamos criar um estilo App.module.css
@@ -492,6 +493,8 @@
 					  gap: 2rem;
 					  align-items: flex-start;
 				} 
+				
+				
 	###Na pasta components vamos criar o component para a sidebar  Sidebar.jsx
 	
 			import styles from './Sidebar.module.css'
@@ -706,7 +709,7 @@
 
 			### Aumentando o 	tamanho do icone
 			
-				NO src/components/Sidebar.jsx
+				No src/components/Sidebar.jsx
 				
 					podemos passar dentro do componente PencilLine o size={20}
 			## Mas com isso o nosso texto não cabe dentro do box, para isso precisamos redizir o gap na estilização
@@ -846,11 +849,136 @@
 						    )      
 						}
 
-  	##### Agora vamos 
-				
+  	##### Agora vamos construir abaixo de nossa reader o conteudo do post
+  	
+  	git commit --amend -m" feat(1-2 6-Componente. Post)"
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|     7-Estilizações do Post   	
 	
+	### Stilizamos o Post.module.css
 	
+			.post {
+			    background: var(--gray-800);
+			    border-radius: 8px;
+			    padding:2.5rem
+			}
+
+			.post + .post {
+			    margin-top: 2rem;
+			}
+
+			.content {
+			    line-height: 1.6;
+			    color: var(--gray-300);
+			    margin-top: 1.5rem;
+			}
+
+			.content p {
+			    margin-top: 1rem;
+			}
+
+			.content a {
+			    font-weight: bold;
+			    color: var(--green-500);
+			    text-decoration: none;
+			}
+
+			.content a:hover {
+			    color: var(--green-300);
+			}
+
+
+			.post > header {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-between;
+			}
+
+			.post > time {
+			    font-size: 0.875rem;
+			    color: var(--gray-400);
+
+			}
+
+
+			.author {
+			    display: flex;
+			    align-items: center;
+			    gap: 1rem;
+			}
+
+			.author img {
+			     /* width: calc(3rem + 12px) !important; */
+			     box-sizing: initial;
+			     width: 3rem;
+			     height: 3rem;
+			     border-radius: 8px; 
+			     border:  4px solid var(--gray-800);
+			     outline: 2px solid var(--green-500);
+			}
+
+			.authorInfo {
+			    display: flex;
+			    flex-direction: column;
+			}
+
+			.authorInfo strong{
+			    display: block;
+			    color: var(--gray-100);
+			    line-height: 1.6;
+			}
+
+			.authorInfo span {
+			    display: block;
+			    font-size: 0.875rem;
+			    color: var(--gray-400);
+			    line-height: 1.6;
+			}
 	
+	### Algumas movificações nas ancoras do content
+	
+		import styles from './Post.module.css';
+
+		export function Post () {
+		    return (
+		        <article className={styles.post}>
+		            <header>
+		                <div className={styles.author}>
+			<img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+			<div className={styles.authorInfo}>
+			    <strong> Abmael Ferreira</strong>
+			    <span> Web Develop</span>
+			</div>
+		                </div>
+
+		                <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h</time>
+		            </header>
+
+		            <div className={styles.content}>
+
+		                <p>Fala galeraa 👋</p>
+		                <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
+		                <p><a href='#'> jane.design/doctorcare</a></p>
+		                <p>
+			<a href='#'>#novoprojeto</a> {'  '}
+			<a href='#'>#nlw</a> {'  '}
+			<a href='#'>#rocketseat  </a> {'  '}
+		                </p>
+
+		            </div>
+		        </article>
+		    )      
+		}
+
+
+	###  Adicionamos em src/global.css   a variavel de cor verde
+	
+		 --green-300: #00B37E;
+	
+			
+	
+		
 	
 	
 	
