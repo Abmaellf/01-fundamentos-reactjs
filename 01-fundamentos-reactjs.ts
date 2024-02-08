@@ -8,7 +8,8 @@
         git config  user.email "abmael.ninha@gmail.com"
         git branch -M main
         
-       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
+		githubToken
+       
 
 ==========================================================================================================================================	
 ==========================================================================================================================================
@@ -495,7 +496,7 @@
 				} 
 				
 				
-	###Na pasta components vamos criar o component para a sidebar  Sidebar.jsx
+	### Na pasta components vamos criar o component para a sidebar  Sidebar.jsx
 	
 			import styles from './Sidebar.module.css'
 
@@ -505,7 +506,7 @@
 			    )
 			}
 	
-	### Agora na pasta conponents vamos criar a stilização para a sidebar  criando o arquivo Sidebar.module.css
+	### Agora na pasta conponents vamos criar a estilização para a sidebar  criando o arquivo Sidebar.module.css
 	
 			.sidebar {
 			    background: red;   //exemplo para ver se esta estilizando
@@ -642,7 +643,7 @@
 							
 				+++ Logo apos o .profile
 				
-					 		.avatar {
+					 		     .avatar {
 								    width: 3ren;
 								    height: 3rem;
 								    border-radius: 8px; 
@@ -651,17 +652,17 @@
 								}	
 								
 								
-							.profile strong {
-							    margin-top: 1rem;
-							    color: var(--gray-100);
-							    line-height: 1.6;
-							}
+								.profile strong {
+								    margin-top: 1rem;
+								    color: var(--gray-100);
+								    line-height: 1.6;
+								}
 
-							.profile span {
-							    font-size: 0.875rem;
-							    color: var(--gray-400);
-							    line-height: 1.6;
-							}				
+								.profile span {
+								    font-size: 0.875rem;
+								    color: var(--gray-400);
+								    line-height: 1.6;
+								}				
 											
 				+++ vamos utilizar a biblioteca phosphoricons.com		
 				
@@ -773,7 +774,7 @@
 	
 	##### ATENÇÃO PARA A DICA
 		
-			EXISTE A VONTADE DE SEPARA EM MAIS PASTAS, MAS O DIEGO FALA QUE TENTAR EVITAR A OTIMIZAÇÃO PREMATURA, OU SEJA NA MAIORIA DOS PROJETOS TENTAMOS
+		EXISTE A VONTADE DE SEPARA EM MAIS PASTAS, MAS O DIEGO FALA QUE TENTAR EVITAR A OTIMIZAÇÃO PREMATURA, OU SEJA NA MAIORIA DOS PROJETOS TENTAMOS
 			CRIAR UMA ESTRUTURA DE PASTAS MAIS ROBUSTAS DO QUE O PROJETO PRECISA
 	
 			IMPORTANTE É CONTEUDO NOMENCLATURA
@@ -869,26 +870,6 @@
 			    margin-top: 2rem;
 			}
 
-			.content {
-			    line-height: 1.6;
-			    color: var(--gray-300);
-			    margin-top: 1.5rem;
-			}
-
-			.content p {
-			    margin-top: 1rem;
-			}
-
-			.content a {
-			    font-weight: bold;
-			    color: var(--green-500);
-			    text-decoration: none;
-			}
-
-			.content a:hover {
-			    color: var(--green-300);
-			}
-
 
 			.post > header {
 			    display: flex;
@@ -922,7 +903,9 @@
 			.authorInfo {
 			    display: flex;
 			    flex-direction: column;
-			}
+			}￼
+Abmael FerreiraWeb Develop
+Publicado há 1h
 
 			.authorInfo strong{
 			    display: block;
@@ -937,7 +920,7 @@
 			    line-height: 1.6;
 			}
 	
-	### Algumas movificações nas ancoras do content
+	### Algumas modificações nas ancoras do content
 	
 		import styles from './Post.module.css';
 
@@ -959,7 +942,9 @@
 		            <div className={styles.content}>
 
 		                <p>Fala galeraa 👋</p>
-		                <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
+		                <p>Acabei de subir mais um projeto no meu portifa. 
+		                		É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
+		                </p>
 		                <p><a href='#'> jane.design/doctorcare</a></p>
 		                <p>
 			<a href='#'>#novoprojeto</a> {'  '}
@@ -972,6 +957,30 @@
 		    )      
 		}
 
+	###  Estilizando o content
+	
+		### Apos o  .post + post { ...
+			
+			.content {
+			    line-height: 1.6;
+			    color: var(--gray-300);
+			    margin-top: 1.5rem;
+			}
+
+			.content p {
+			    margin-top: 1rem;
+			}
+
+			.content a {
+			    font-weight: bold;
+			    color: var(--green-500);
+			    text-decoration: none;
+			}
+
+			.content a:hover {
+			    color: var(--green-300);
+			}
+
 
 	###  Adicionamos em src/global.css   a variavel de cor verde
 	
@@ -981,20 +990,180 @@
 =======
   	##### Agora vamos 
 				
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|    8-Formulário de comentários	
 	
+		No html do Post
+		## Post 
+			Vamos dar um enter depois da div do conteudo
+			+ Vamos criar um formulario com uma className styles.commentForm
+			
+			+ Um strong com um text "Deixe um comentário"
+			
+			+ Um textarea com um placeholder Deixe um comentário
+			
+			+ Um  button type submit escrito  Comentar
+			
+				 </div>   <!-- Div fim do content
+
+				            <form className={style.commentForm}>
+				            
+				                <strong> Deixe seu feedback</strong>
+
+				                <textearea
+				                 		placeholder="Deixe um comentário"
+				                >
+				                   
+				                </textearea>
+
+				                <button type="submit"> 
+				                
+				                </button>
+				            </form>
+
+				        </article>
+			
+			++ Agora vamos estilizar o Post.module.css na classe .commentForm
+			
+					.commentForm {
+
+					    width: 100%;
+					    margin-top: 1.5rem;
+					    padding-top: 1.5rem;
+					    border-top: 1px solid var(--gray-600);
+					}
+			+++ Agora o .commentForm > strong
+				
+				.commentForm > strong {
+					    line-height: 1.6;
+					    color: var(--gray-100);
+
+					}
+			+++ Agora o commentForm textarea 
+			
+				.commentForm textarea {
+				    width: 100%;
+				    background: var(--gray-900);
+				    border: 0;
+				    resize: none;  /*Não permitir que o usuario redimencione*/
+				    height: 6rem;
+				    padding: 1rem;
+				    border-radius: 8px;
+				    color: var(--gray-100);
+				    line-height: 1.4;
+				    margin-top: 1rem; 
+				}
+
+			+++ Agora o commentForm [type=submit]
+				
+				.commentForm button[type=submit] {
+				    padding: 1rem 1.5rem;
+				    margin-top:1rem;
+				    border-radius: 8px;
+				    border:0;
+				    background: var(--green-500);
+				    color: var(--white);
+				    font-weight:bold;
+				    cursor:pointer;
+
+				}
 	
+			+++ Agora com o hover  o commentForm [type=submit]:hover
+			
+								
+				.commentForm button[type=submit]:hover {
+				    background: var(--green-300);
+				}
 	
+			+++ Vamos adicionar uma transição no  .commentForm button[type=submit] 
+			
+				.commentForm button[type=submit] {	
+					...
+					...
+					 cursor:pointer;
+
+	   				  transition: background-color 0.2s;
+   				}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			### Agora vamos ajustar quando na textarea estamos digitando fica com a borda branca, vamos ajustar para o verde
+				Isso ocorre em todos os elementos pois é a definição do focus
+				
+			+++ Para isso vamos acessar o nosso global.css e definir abaixo das variáveis :root  a variável : focus
+				src/global.css
+				
+				:root {
+				. . .
+				}
+				
+				 :focus {
+				        outline: transparent;
+				        box-shadow: 0 0 0 2px var(--green-500);
+				    }
+				
+			+++ Alterar o descrição do botão de Comentar para Publicar
+			
+			+++ Ajustar o botão publicar para ser exibido somente quando o usuário estiver focado na textarea
+				
+				Vamos acessar src/components/Post.module.css
+				
+					Na classe 	.commentForm button[type=submit] 
+					
+					Vamos adicionar um visibility	
+					
+										
+					.commentForm button[type=submit] {
+					    padding: 1rem 1.5rem;
+					    margin-top:1rem;
+					    border-radius: 8px;
+					    border:0;
+					    background: var(--green-500);
+					    color: var(--white);
+					    font-weight:bold;
+					    cursor:pointer;
+					    transition: background-color 0.2s;
+
+					  ++   visibility: hidden;
+					  ++  max-height: 0;
+					}
+				 !! com esses parametros foi possível não exibir o botão, mas o seu espaço ainda continua sendo ocupado
+				 
+				 !! Outra opçção é adicionar um display: nono;  Mas essa opção não é uma boa pratica para a acessibilidade
+				 
+				 +++ Para isso no  src/components/Post.jsx vamos envolver o botão dentro de um footer
+				 
+				 	. . . 
+				 	
+				 	               <textarea
+					                 placeholder="Deixe um comentário"
+					                />
+					               
+					          ++    <footer>
+					                    <button type="submit"> 
+						    Publicar
+						</button>
+					          ++    </footer>
+					            </form>
+				 +++  Agora no src/components/Post.module.css vamos mover o:
+				 	    visibility: hidden;
+					    max-height: 0;
+				         Para dentro de uma nova estilizaão .commentForm footer
+				         
+					        .commentForm footer {
+						    visibility: hidden;
+						    max-height: 0;
+					         } 
+								
+				+++ Agora vamos estilizar o .commentForm:focus-within que é diferente do focus tradicional
+					
+					LEITURA: Se houver algum outro focu em qual quer elemento dentro do .commentForm então eu quero aplicar
+					                alguma estilização definindo o elemento que no nosso caso é o footer
+					                
+					                	.commentForm:focus-within  footer{
+						    visibility: visible;
+						    max-height: none; 
+						}
+					
 	
 	
 	
