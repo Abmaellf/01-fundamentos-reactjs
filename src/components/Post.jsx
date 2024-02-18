@@ -1,14 +1,15 @@
-import style from './Post.module.css'
+import { Comment } from './Comment'
+import styles from './Post.module.css'
 export function Post() {
     return(
      
-        <article className={style.post}>
+        <article className={styles.post}>
             <header>
-                <div className={style.author}>
+                <div className={styles.author}>
 
-                    <img className={style.avatar} src="https://github.com/Abmaellf.png"/>
+                    <img className={styles.avatar} src="https://github.com/Abmaellf.png"/>
 
-                    <div className={style.authorInfo}>
+                    <div className={styles.authorInfo}>
                         <strong>Abmael Ferreira</strong>
                         <span>Web Develop</span>
                     </div>
@@ -18,7 +19,7 @@ export function Post() {
                 <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
             </header>
 
-            <div className={style.content}>
+            <div className={styles.content}>
 
                 <p>Fala galeraa 👋</p>
                 <p>
@@ -38,7 +39,7 @@ export function Post() {
             </div>  {/* Div Fim do content */}
             
 
-            <form className={style.commentForm}>
+            <form className={styles.commentForm}>
 
                 <strong> Deixe seu feedback</strong>
 
@@ -52,6 +53,12 @@ export function Post() {
                     </button>
                 </footer>
             </form>
+
+            <div className={styles.commentList}>
+                <Comment/>
+                <Comment/>
+                <Comment/>
+            </div>
 
         </article>
     )

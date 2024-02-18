@@ -50,6 +50,9 @@
 	
 ==========================================================================================================================================
 ==========================================================================================================================================	
+/||||||||||||||||||||||||||||||||||| |||||||||||||||COMEÇO ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||/
+==========================================================================================================================================
+
 	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 4-Criando um projeto React
 		
 		Meu node -v    v18.17.1
@@ -548,9 +551,7 @@
 
 						            <footer>
 							   <a href="#">
-							       <PencilLine size={20} />
-
-							       Editar seu perfil  
+							             Editar seu perfil  
 							   </a>
 						            </footer>
 					        </aside>
@@ -632,7 +633,7 @@
 		 ## Agora em src/components/Sidebar.module.css
 		 
 		 	Vamos estilizar o .avatar 
-		 		Mas antes adicionamos uma magem no .profile
+		 		Mas antes adicionamos uma margin no .profile
 		 		
 		 				.profile {
 							    display: flex;
@@ -844,7 +845,7 @@
 							       </div>
 							   </div>
 
-							   <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h</time>
+						+++	   <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h</time>
 						            </header>
 						        </article>
 						    )      
@@ -858,7 +859,7 @@
 ==========================================================================================================================================	
 	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|     7-Estilizações do Post   	
 	
-	### Stilizamos o Post.module.css
+	### Estilizamos o Post.module.css
 	
 			.post {
 			    background: var(--gray-800);
@@ -1128,7 +1129,7 @@ Publicado há 1h
 					}
 				 !! com esses parametros foi possível não exibir o botão, mas o seu espaço ainda continua sendo ocupado
 				 
-				 !! Outra opçção é adicionar um display: nono;  Mas essa opção não é uma boa pratica para a acessibilidade
+				 !! Outra opçção é adicionar um display: none;  Mas essa opção não é uma boa pratica para a acessibilidade
 				 
 				 +++ Para isso no  src/components/Post.jsx vamos envolver o botão dentro de um footer
 				 
@@ -1164,34 +1165,124 @@ Publicado há 1h
 						    max-height: none; 
 						}
 					
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|    9-Componente. Comment
 	
+	CTRL + B :  ALTERNAR ENTRE O EXPLORE DO PROJETO NO VSCODE
 	
+	Em noss pasta de components vamos criar um component chamado Comment.jsx  e o css  Comment.module.css
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		++ Estrutura basica do Comment.jsx  com uma div que engloba tudo chamado 
+		  style.comment
+		
+			
+			
 				
->>>>>>> 8d56624380df1a1d72e190ad7f6336fda46c3972
+			
+			import styles from './Comment.module.css'                           
+			export function Comment () {
+			    return (
+			        <div className={styles.comment}>
+
+			        </div>
+			    )
+			}
+			
+/		
+		++ Estrutura basica do Comment.module.css
+		
+			.comment {
+    
+			}
+		
+	### No Comment.jsx  vamos adicionar a imagem de profile |div styles.commentBox | div styles.commentContent |  a header | a div styles.authorAndTime
+			| e o footer |
+				
+		import styles from './Comment.module.css'
+		export function Comment () {
+		    return (
+		        <div className={styles.comment}>
+
+		            <img src="https://github.com/Abmaellf.png" alt=''/>
+
+		            <div className={styles.commentBox}>
+		                <div className={styles.commentContent}>
+			<header>
+			    <div className={styles.authorAndTime}>
+			        <strong></strong>
+			        <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
+			    </div>
+			</header>
+
+			<p>Muito bom devam parabens </p>
+
+		                </div>
+
+		                <footer>
+			Aplaudir
+		                </footer>
+		            </div>
+		        </div>
+		    )
+		}   
+	
+	
+	### Logo apos a nossa div styles.authorAndTime que esta dentro do header, vamos adicionar o nosso botão que será apenas um icone, por isso vamos
+	         colocar um title
+	         	. . .
+	         	 <header>
+		    <div className={styles.authorAndTime}>
+		        <strong></strong>
+		        <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
+		    </div>
+
+		    <button title='Deletar comentario'>
+		        <Trash size={20}/>                        
+		    </button>
+		</header>
+		. . .
+		
+	### No footer que tinha apenas aplaudir vamos adicionar também um botão
+	
+		. . . 
+	                <footer>
+		<button>
+		   <ThumbsUp/> 
+
+		   Aplaudir <span>20</span>
+		</button>
+	                </footer>
+		. . .
+	
+	##### Agora vamos acessar o nosso component de Post.jsx  e abaixo do form vamos adiccionar uma div chamada stycommetList
+	
+	
+		Fiz uma alteração na importação do style para styles
+		
+		. . .
+		
+			 </form>
+
+			            <div className={styles.commentList}>
+			                <Comment/>
+			                <Comment/>
+			                <Comment/>
+			            </div>
+
+			        </article>
+		 . . .
+		 
+	####  Agora vamos estilizar no nosso Post.module.css  no final do arquivo depois do commentForm
+	
+		}
+
+		.commentList {
+		    margin-top:2rem;
+		}
 	
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 	
 	
