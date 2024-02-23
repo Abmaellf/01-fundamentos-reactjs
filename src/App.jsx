@@ -16,14 +16,10 @@ export function App() {
         <Sidebar/>
 
         <main>
-              <Post 
-                author="Abmael"
-                content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
-              />
-              <Post 
-                author="Abmael"
-                content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
-              />
+              <Post/>
+              <Post/>
+              <Post/>
+             
               
 
         </main>

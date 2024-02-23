@@ -72,13 +72,17 @@
 		
 		## Executar npm i
 		
-		## Agora npm run dev
+		### code .
 		
 		### Conteudo extra trocando a porta de execução do projeto vite
 		
 		### Acessaro vite.config.js
 		
 		### FastRefresh  existe por padrão no vite
+		
+		## Agora npm run dev
+		
+				
 		
 		### Remover todos os arquivos da pasta source
 		
@@ -470,12 +474,12 @@
 									<main>
 									      <Post 
 										author="Abmael"
-										content="Conteudo Conteudo ConteudoConteudo Conteudo Conteudo"
+										content="Conteudo Conteudo ConteudoConteudo"
 									      />
 									    
 									      <Post
 										author="Rafael"
-										content="Conteudo Conteudo Conteudo Conteudo Conteudo"
+										content="Conteudo Conteudo Conteudo Conteudo "
 									      />  
 
 									</main>
@@ -674,6 +678,7 @@
 				+++ Vamo acessar abaixo do get start o github
 				
 				https://github.com/phosphor-icons/homepage
+				
 				## Navegar até na sessão react e vamos instalar a biblioteca phosphor-icons/react
 				npm i @phosphor-icons/react
 				
@@ -746,23 +751,23 @@
 			 Em src/components/Sidebar.module.css
 								
 					.sidebar footer a {
-					    background: transparent;
-					    color: var(--green-500);
-					    border: 1px solid var(--green-500);
-					    border-radius: 8px;
-					    height: 50px;
-					    padding: 0 1.5rem;
-					    font-weight: bold;
-					    display: block;
-					    text-decoration: none;
+						    background: transparent;
+						    color: var(--green-500);
+						    border: 1px solid var(--green-500);
+						    border-radius: 8px;
+						    height: 50px;
+						    padding: 0 1.5rem;
+						    font-weight: bold;
+						    display: block;
+						    text-decoration: none;
 
-					    display: flex;
-					    align-items: center;
-					    justify-content: center;
+						    display: flex;
+						    align-items: center;
+						    justify-content: center;
 
-					    gap: 0.5rem;
+						    gap: 0.5rem;
 
-					    transition: color 0.1s, background-color 0.1s;
+					+++     transition: color 0.1s, background-color 0.1s;
 					}
 							
 ==========================================================================================================================================
@@ -854,6 +859,7 @@
 <<<<<<< HEAD
   	##### Agora vamos construir abaixo de nossa reader o conteudo do post
   	
+  	### Foi necessárioi renomear o ocommit
   	git commit --amend -m" feat(1-2 6-Componente. Post)"
 ==========================================================================================================================================
 ==========================================================================================================================================	
@@ -866,7 +872,8 @@
 			    border-radius: 8px;
 			    padding:2.5rem
 			}
-
+			
+			#### Pegar somente o primeiro post
 			.post + .post {
 			    margin-top: 2rem;
 			}
@@ -950,7 +957,7 @@ Publicado há 1h
 		                <p>
 			<a href='#'>#novoprojeto</a> {'  '}
 			<a href='#'>#nlw</a> {'  '}
-			<a href='#'>#rocketseat  </a> {'  '}
+			<a href='#'>#rocketseat</a> {'  '}
 		                </p>
 
 		            </div>
@@ -963,7 +970,7 @@ Publicado há 1h
 		### Apos o  .post + post { ...
 			
 			.content {
-			    line-height: 1.6;
+			    line-height: 1.6;                  ### Altura da linha
 			    color: var(--gray-300);
 			    margin-top: 1.5rem;
 			}
@@ -996,6 +1003,7 @@ Publicado há 1h
 	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|    8-Formulário de comentários	
 	
 		No html do Post
+		
 		## Post 
 			Vamos dar um enter depois da div do conteudo
 			+ Vamos criar um formulario com uma className styles.commentForm
@@ -1004,7 +1012,7 @@ Publicado há 1h
 			
 			+ Um textarea com um placeholder Deixe um comentário
 			
-			+ Um  button type submit escrito  Comentar
+			+ Um  button type submit escrito  Publicar
 			
 				 </div>   <!-- Div fim do content
 
@@ -1041,6 +1049,7 @@ Publicado há 1h
 					    color: var(--gray-100);
 
 					}
+					
 			+++ Agora o commentForm textarea 
 			
 				.commentForm textarea {
@@ -1145,6 +1154,7 @@ Publicado há 1h
 						</button>
 					          ++    </footer>
 					            </form>
+					            
 				 +++  Agora no src/components/Post.module.css vamos mover o:
 				 	    visibility: hidden;
 					    max-height: 0;
@@ -1271,7 +1281,7 @@ Publicado há 1h
 			            </div>
 
 			        </article>
-		 . . .
+/		 . . .
 		 
 	####  Agora vamos estilizar no nosso Post.module.css  no final do arquivo depois do commentForm
 	
@@ -1281,23 +1291,193 @@ Publicado há 1h
 		    margin-top:2rem;
 		}
 	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   10-Estilizações do Comentários
 		
+	### Vamos acerssar o Comment.module.css
+		.comment {
+		    margin-top: 1.5rem;
+		    display:flex;
+		    gap: 1rem;
+		}
 		
+	### Estilizar a imagem img, mas vamos copiar o css do Post.module.css que tem uma estilização  .author img
+	
+	 	  .comment > img {
+		    width: 3rem;
+		    height: 3rem;
+		    border-radius: 8px; 
+		}  
+
+			
+	#### CommentBox
+	
+		.commentBox {
+		    flex:1;
+		}
+	
+	###  CommentContent 
+	
+		.commentContent {
+		    background: var(--gray-700);
+		    border-radius: 8px;
+		    padding: 1rem;  
+		}
+
+	### .commentContent header 
+	
+		.commentContent header {
+		    display: flex;
+		    align-items: center;
+		    justify-content: space-between;
+
+		}
+	
+	###  authorAndTime
+	
+			.authorAndTime strong {
+			    display:block;
+			    font-size:0.875rem;
+			    line-height:1.6;
+			}
+
+			.authorAndTime time {
+			    display:block;
+			    font-size: 0.75rem;
+			    line-height:1.6;
+			    color: var(--gray-400);
+
+			}
+	
+	####  Estilizar o botão 
+	
+		.commentContent header button {
+		    background: transparent;
+		    border: 0;
+		    color: var(--gray-400);
+		    
+		}
+	
+	### Ajustando a borda do botão de excluir o commentario
+		.commentContent header button {
+		    background: transparent;
+		    border: 0;
+		    color: var(--gray-400);
+		    
+	+++++ 	    line-height:0;
+		    
+		}
+		
+	####  Vamos aredondar a borda do botão 
+			.commentContent header button {
+		    background: transparent;
+		    border: 0;
+		    color: var(--gray-400);
+		    
+		    line-height:0;
+	+++++ 	    border-radius:4px;
+	
+	
+	####  Ajustar o hover do botão de excluir commentário
+		
+		1 - vamos adicionar a cor vermelha em nosso arquivo global.css
+			
+			:root {
+				...
+				
+				--red-500: #F75A68;
+		2 - Agora vamos criar uma estilização para quando houver um hover no botão de excluir comentario
+		
+			.commentContent header button:hover {
+			    color: var(--red-500);
+			}
+			
+			
+			
+	####   Vamos aumentar o tamanho do botão de excluir commentário
+	
+		Em  src/components/Comment.jsx
+		
+				 <div className={styles.commentBox}>
+				                <div className={styles.commentContent}>
+					<header>
+					    <div className={styles.authorAndTime}>
+					        <strong></strong>
+					        <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
+					    </div>
+
+					    <button title='Deletar comentario'>
+				++++++++++        <Trash size={24}/>
+					    </button>
+					</header>
+/		
+	#### Alinhar o botão de excluir com o header do comment
+	
+		Alterar o .commentContent header para o alinhamento a esquerda
+		
+			.commentContent header {
+			    display: flex;
+		          +++++    align-items: flex-start;
+			    justify-content: space-between;
+			}
 	
 	
 	
+	####  Estilizando o p do conteudo
 	
+		.commentContent p {
+		    margin-top: 1rem;
+		    color: var(--gray-300);
+		}
 	
+	###  Estilizando o footer
 	
+		.commentBoxfooter {
+		    margin-top: 1rem;
+		}
 	
+	### Estilizando o botão do footer 
 	
+		
+		.commentBox footer button {
+		    background: transparent;
+		    border:0;
+		    color: var(--gray-400);
+		    cursor: pointer;
+
+		    display: flex;
+		    align-items: center
+		}
+	### Adicionando hover no botão de aplaudir
 	
+		.commentBox footer button:hover {
+		    color: var(--green-300);
+		}
 	
+	###  distanciar o icone de joinha o legal do  botão aplaudir 
+		.commentBox footer button svg {
+		    margin-right:0.5rem;
+		}
+	###  antes do numero 20 do aplaudir vamos colocar um ponto e espaço com o elemento before
 	
+		  .commentBox footer button span::before {
+		    content: "\2022";
+		    padding: 0 0.25rem;
+		}
+	### Aredondar a borda do botões de aplaudir
 	
-	
-	
-	
+		.commentBox footer button {
+			    background: transparent;
+			    border:0;
+			    color: var(--gray-400);
+			    cursor: pointer;
+
+			    display: flex;
+			    align-items: center;
+
+		++++++++	    border-radius:2px;
+			}	
 	
 	
 				
