@@ -66,7 +66,7 @@
 		
 		##Criar o projeto
 			
-		Projeto criado com o	 npm create vite@latest                OU 	yarn create vite
+		Projeto criado com o    / /  npm create vite@latest     / /         OU 	yarn create vite
 						
 		Nome do projeto 01-fundamentos-reactjs
 		
@@ -77,6 +77,7 @@
 		### Conteudo extra trocando a porta de execução do projeto vite
 		
 		### Acessaro vite.config.js
+		
 		
 		### FastRefresh  existe por padrão no vite
 		
@@ -223,11 +224,9 @@
 ==========================================================================================================================================	
 	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 	1-CSS Modules
 	
-	 Derntro da pasta src vammos criar uma arquivo chamdo styles.css
+	 Derntro da pasta src vamos criar uma arquivo chamdo styles.css            OU MAIS TARDE global.css
 	 
-	 		body {
-				    background: #121214;
-			}
+	 		
 	### Se for feito a importação desse arquivo no html o mesmo já vai renderizar a pagina com esse fundo
 	### Mas algo muito importante é que no react não fazemos importanção do css no html, é  sempre pelo javascript
 	### Dessa forma vamos acessar o nosso component Post e adicionar a importação
@@ -296,7 +295,8 @@
 				    --gray-800:#202024;
 				    --gray-900:#121214;
 
-				    --gren-500: #00875f
+				    --green-500: #00875f
+				    --green-300: 
 				}
 
 				* {
@@ -497,7 +497,7 @@
 					  padding: 0 1rem;
 
 					  display: grid;
-					  grid-template-columns: 256px 1fr;
+					  grid-template-columns: 256px 1fr;          #### Pesquisar sobre as unidades de medidas
 					  gap: 2rem;
 					  align-items: flex-start;
 				} 
@@ -719,7 +719,7 @@
 				No src/components/Sidebar.jsx
 				
 					podemos passar dentro do componente PencilLine o size={20}
-			## Mas com isso o nosso texto não cabe dentro do box, para isso precisamos redizir o gap na estilização
+			## Mas com isso o nosso texto não cabe dentro do box, para isso precisamos reduzir o gap na estilização
 				
 										
 					.sidebar footer a {
@@ -736,7 +736,7 @@
 					    align-items: center;
 					    justify-content: center;
 
-					    gap: 0.5rem
+				+++++	    gap: 0.5rem
 					}
 
 
@@ -747,7 +747,7 @@
 					    color: var(--white);
 					}					
 	
-		###  Adicionando uma transiçção no houver
+		###  Adicionando uma transisão no houver
 			 Em src/components/Sidebar.module.css
 								
 					.sidebar footer a {
@@ -780,8 +780,8 @@
 	
 	##### ATENÇÃO PARA A DICA
 		
-		EXISTE A VONTADE DE SEPARA EM MAIS PASTAS, MAS O DIEGO FALA QUE TENTAR EVITAR A OTIMIZAÇÃO PREMATURA, OU SEJA NA MAIORIA DOS PROJETOS TENTAMOS
-			CRIAR UMA ESTRUTURA DE PASTAS MAIS ROBUSTAS DO QUE O PROJETO PRECISA
+		EXISTE A VONTADE DE SEPARA EM MAIS PASTAS, MAS O DIEGO FALA QUE TENTAR EVITAR A OTIMIZAÇÃO PREMATURA, OU SEJA NA MAIORIA
+		 DOS  PROJETOS TENTAMOS CRIAR UMA ESTRUTURA DE PASTAS MAIS ROBUSTAS DO QUE O PROJETO PRECISA
 	
 			IMPORTANTE É CONTEUDO NOMENCLATURA
 			
@@ -870,7 +870,7 @@
 			.post {
 			    background: var(--gray-800);
 			    border-radius: 8px;
-			    padding:2.5rem
+			    padding:2.5rem;
 			}
 			
 			#### Pegar somente o primeiro post
@@ -947,20 +947,23 @@ Publicado há 1h
 		                <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h</time>
 		            </header>
 
-		            <div className={styles.content}>
+		           	<div className={styles.content}>
 
-		                <p>Fala galeraa 👋</p>
-		                <p>Acabei de subir mais um projeto no meu portifa. 
-		                		É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
-		                </p>
-		                <p><a href='#'> jane.design/doctorcare</a></p>
-		                <p>
-			<a href='#'>#novoprojeto</a> {'  '}
-			<a href='#'>#nlw</a> {'  '}
-			<a href='#'>#rocketseat</a> {'  '}
-		                </p>
+			                <p>Fala galera </p>
 
-		            </div>
+			                <p>
+				Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLW Return, evento da Rocketseat.
+				O nome do projeto é DoctorCare.
+			                </p>
+
+			                <p><a href='#'>jane.design/docktorcare</a></p>
+			                
+			                <p>
+				<a href='#'>#novoprojeto</a>{' '}
+				<a href='#'>#nlw</a>{' '}
+				<a href='#'>#rocketseat</a>{' '}
+			                </p>
+			  </div>
 		        </article>
 		    )      
 		}
@@ -1032,6 +1035,7 @@ Publicado há 1h
 				            </form>
 
 				        </article>
+/
 			
 			++ Agora vamos estilizar o Post.module.css na classe .commentForm
 			
@@ -1042,9 +1046,11 @@ Publicado há 1h
 					    padding-top: 1.5rem;
 					    border-top: 1px solid var(--gray-600);
 					}
+					
 			+++ Agora o .commentForm > strong
 				
-				.commentForm > strong {
+					.commentForm > strong {
+					
 					    line-height: 1.6;
 					    color: var(--gray-100);
 
@@ -1052,49 +1058,49 @@ Publicado há 1h
 					
 			+++ Agora o commentForm textarea 
 			
-				.commentForm textarea {
-				    width: 100%;
-				    background: var(--gray-900);
-				    border: 0;
-				    resize: none;  /*Não permitir que o usuario redimencione*/
-				    height: 6rem;
-				    padding: 1rem;
-				    border-radius: 8px;
-				    color: var(--gray-100);
-				    line-height: 1.4;
-				    margin-top: 1rem; 
-				}
+					.commentForm textarea {
+					    width: 100%;
+					    background: var(--gray-900);
+					    border: 0;
+					    resize: none;  /*Não permitir que o usuario redimencione*/
+					    height: 6rem;
+					    padding: 1rem;
+					    border-radius: 8px;
+					    color: var(--gray-100);
+					    line-height: 1.4;
+					    margin-top: 1rem; 
+					}
 
 			+++ Agora o commentForm [type=submit]
 				
-				.commentForm button[type=submit] {
-				    padding: 1rem 1.5rem;
-				    margin-top:1rem;
-				    border-radius: 8px;
-				    border:0;
-				    background: var(--green-500);
-				    color: var(--white);
-				    font-weight:bold;
-				    cursor:pointer;
+					.commentForm button[type=submit] {
+					    padding: 1rem 1.5rem;
+					    margin-top:1rem;
+					    border-radius: 8px;
+					    border:0;
+					    background: var(--green-500);
+					    color: var(--white);
+					    font-weight:bold;
+					    cursor:pointer;
 
-				}
+					}
 	
 			+++ Agora com o hover  o commentForm [type=submit]:hover
 			
 								
-				.commentForm button[type=submit]:hover {
-				    background: var(--green-300);
-				}
+					.commentForm button[type=submit]:hover {
+					    background: var(--green-300);
+					}
 	
 			+++ Vamos adicionar uma transição no  .commentForm button[type=submit] 
 			
-				.commentForm button[type=submit] {	
-					...
-					...
-					 cursor:pointer;
+					.commentForm button[type=submit] {	
+						...
+						...
+						 cursor:pointer;
 
-	   				  transition: background-color 0.2s;
-   				}
+  	   				       ++++++  transition: background-color 0.2s;
+	   				}
 	
 			### Agora vamos ajustar quando na textarea estamos digitando fica com a borda branca, vamos ajustar para o verde
 				Isso ocorre em todos os elementos pois é a definição do focus
@@ -1136,9 +1142,9 @@ Publicado há 1h
 					  ++   visibility: hidden;
 					  ++  max-height: 0;
 					}
-				 !! com esses parametros foi possível não exibir o botão, mas o seu espaço ainda continua sendo ocupado
+				 !! com esses parametros foi possível NÃO exibir o botão, mas o seu ESPAÇO ainda continua sendo ocupado
 				 
-				 !! Outra opçção é adicionar um display: none;  Mas essa opção não é uma boa pratica para a acessibilidade
+				 !! Outra opção é adicionar um display: none;  Mas essa opção não é uma boa pratica para a acessibilidade
 				 
 				 +++ Para isso no  src/components/Post.jsx vamos envolver o botão dentro de um footer
 				 
@@ -1206,8 +1212,7 @@ Publicado há 1h
     
 			}
 		
-	### No Comment.jsx  vamos adicionar a imagem de profile |div styles.commentBox | div styles.commentContent |  a header | a div styles.authorAndTime
-			| e o footer |
+	### No Comment.jsx  vamos adicionar a imagem de profile |div styles.commentBox | dentro div styles.commentContent | dentro a header |dentro  a div styles.authorAndTime 		| No mesmo nível do commentContent o footer |
 				
 		import styles from './Comment.module.css'
 		export function Comment () {
@@ -1220,7 +1225,7 @@ Publicado há 1h
 		                <div className={styles.commentContent}>
 			<header>
 			    <div className={styles.authorAndTime}>
-			        <strong></strong>
+			        <strong>Abmael Ferreira</strong>
 			        <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
 			    </div>
 			</header>
@@ -1247,9 +1252,9 @@ Publicado há 1h
 		        <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
 		    </div>
 
-		    <button title='Deletar comentario'>
-		        <Trash size={20}/>                        
-		    </button>
+	++	    <button title='Deletar comentario'>
+	++	        <Trash size={20}/>                        
+	++	    </button>
 		</header>
 		. . .
 		
@@ -1387,6 +1392,8 @@ Publicado há 1h
 				...
 				
 				--red-500: #F75A68;
+				
+				
 		2 - Agora vamos criar uma estilização para quando houver um hover no botão de excluir comentario
 		
 			.commentContent header button:hover {
@@ -1433,7 +1440,7 @@ Publicado há 1h
 	
 	###  Estilizando o footer
 	
-		.commentBoxfooter {
+		.commentBox footer {
 		    margin-top: 1rem;
 		}
 	
@@ -1449,22 +1456,29 @@ Publicado há 1h
 		    display: flex;
 		    align-items: center
 		}
+		
+		
 	### Adicionando hover no botão de aplaudir
 	
 		.commentBox footer button:hover {
 		    color: var(--green-300);
 		}
 	
+	
 	###  distanciar o icone de joinha o legal do  botão aplaudir 
 		.commentBox footer button svg {
 		    margin-right:0.5rem;
 		}
+		
+		
 	###  antes do numero 20 do aplaudir vamos colocar um ponto e espaço com o elemento before
 	
 		  .commentBox footer button span::before {
 		    content: "\2022";
 		    padding: 0 0.25rem;
 		}
+		
+		
 	### Aredondar a borda do botões de aplaudir
 	
 		.commentBox footer button {
@@ -1479,6 +1493,295 @@ Publicado há 1h
 		++++++++	    border-radius:2px;
 			}	
 	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   11-Componente. Avatar
+			
+	Os componentes de avatar são muitos parecidos, no react existe 2 grandesmomentos que criamos componentes
+		1 - O mais fácil quando alguma coisa repete em tela
+		2 - O segundo é quando você consegue tirar algo de um componente maior, sem que o componente para de funcionar
 	
+	Exemplo:
+		Temos uma tela que lista todos os usuários, nessa tela temos um butão para fazer upload de usuários em massa de usuários ou qualquer outra coisa
+		O botão tem um funcionamento complexo que não existe a necessidade de estar nesse grande component então vamos mover essa complexidade do 
+		botão para um outro component, desacoplando de um component criando criando outro
+	
+	### Vamos criar dentro da pasta component um novo component chamado Avatar junto com o seu css
+	
+		Avatar.jsx
+		
+			import styles from './Avatar.module';
+			export function Avatar() {
+			    return (
+
+			    )
+			}		
+
+		Avatar.module.css
+			.avatar {
+    
+			}
+	### Vamos recortar o avatar que existe na Sidebar.jsx
+	
+		<img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+	
+	### E colar no nosso novo component
+	
+			import styles from './Avatar.module';
+			export function Avatar() {
+			    return (
+			        <img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+			    )
+			}
+		
+	### Vamos defidir o src dinamico pois podemos passar um avatar diferente, para isso vamos utilizar as propriedades
+	
+			import styles from './Avatar.module';
+			export function Avatar(props) {
+			    return (
+			        <img className={styles.avatar} src={props.src} />
+			    )
+			}
+	
+
+
+
+	### 	Agora na Sidebar vamos utilizar o avatar no lugar do codigo de avatar recortado
+	
+	
+			import { PencilLine } from 'phosphor-react'
+			import styles from './Sidebar.module.css'
+			import { Avatar } from './Avatar'
+
+			export function Sidebar() {
+			    return (
+			        <aside className={styles.sidebar}> 
+			            <img 
+			                className={styles.cover} 
+			                src="https://plus.unsplash.com/premium_photo-1661593486413-d279b1a02e28?
+			                q=50&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+			            />
+			        
+
+			            <div className={styles.profile}>
+
+			                <Avatar src="https://github.com/Abmaellf.png" />
+			                
+		### Identificamos que já esta mostrando o avatar mais ainda não foi aplicado os stilus
+		
+		### Vamos recortar a estilização que existe na sidebar referente ao avatar
+		
+			.avatar {
+			    /* width: calc(3rem + 12px) !important; */
+			    box-sizing: initial;
+			    width: 3rem;
+			    height: 3rem;
+			    border-radius: 8px; 
+			    border:  4px solid var(--gray-800);
+			    outline: 2px solid var(--green-500);
+			}
+			
+				 /* width: calc(3rem + 12px) !important; */
+				    box-sizing: initial;
+				    width: 3rem;
+				    height: 3rem;
+				    border-radius: 8px; 
+				    border:  4px solid var(--gray-800);
+				    outline: 2px solid var(--green-500);
+			
+		Recortamos apenas o conteudo
+		
+		#### Vamos colar em 	 src/components/Avatar.module.css
+		
+			.avatar {
+			      /* width: calc(3rem + 12px) !important; */
+			      box-sizing: initial;
+			      width: 3rem;
+			      height: 3rem;
+			      border-radius: 8px; 
+			      border:  4px solid var(--gray-800);
+			      outline: 2px solid var(--green-500); 
+			}
+		
+		### Vamos fazer o mesmo procedimento no Post
+		
+			Em src/components/Post.jsx
+			
+			Vamos alterar:
+			
+				 <img className={styles.avatar} src="https://github.com/Abmaellf.png"/>
+			
+			Para  :
+				<Avatar src="https://github.com/Abmaellf.png"/>
+			
+		### Vamos retirar do Post a estilização do avatar que fica em src/components/Post.module.css	
+		
+			CODIGO EXCLUIDO
+			
 				
-	
+				.author img {
+				     /* width: calc(3rem + 12px) !important; */
+				     /* box-sizing: initial; */
+				     width: calc(3rem + 12px);
+				     height: calc(3rem + 12px);
+				     border-radius: 8px; 
+				     border:  4px solid var(--gray-800);
+				     outline: 2px solid var(--green-500);
+				}
+		
+		### Também vamos atualizar o nosso componente de avatar em Comment
+			Que fica em src/components/Comment.jsx
+			
+			CODIGO ALTERADO:
+			DE:  <img src="https://github.com/Abmaellf.png" alt=''/> 
+			PARA: <Avatar src="https://github.com/Abmaellf.png" alt=''/>
+		
+		
+		### O nosso avatar de Comment não tem a borda então teremos que passar alguma propriedade que não seja estilizado a borda
+		
+		1-PRIMEIRA FORMA 
+			
+			1.1 EM NOSSO COMPONENT DE COMMENT - src/components/Comment.jsx
+			
+				1.1 .1- Vamos passar uma propriedade chamada hasBorder={false} src=. . ./>
+				
+					<Avatar hasBorder={false} src="https://github.com/Abmaellf.png" alt=''/>
+			1.2 EM NOSSO COMPONENT DE AVATAR, AGORA TEMOS ACESSO A ESSA PROPS
+			
+				1.2.1 - Vamos criar um estilo em src/components/Avatar.module.css
+				
+					.avatar  e o .avatarWithBorder
+			
+					.avatar {
+					      /* width: calc(3rem + 12px) !important; */
+					      box-sizing: initial;
+					      width: 3rem;
+					      height: 3rem;
+					      border-radius: 8px; 
+					       
+					}
+
+					.avatarWithBorder {
+					    /* width: calc(3rem + 12px) !important; */
+					    box-sizing: initial;
+					    width: 3rem;
+					    height: 3rem;
+					    border-radius: 8px; 
+					    border:  4px solid var(--gray-800);
+					    outline: 2px solid var(--green-500); 
+					}	
+			
+		
+				1.2.2 - No component Avatar, no className vamos fazer uma condição
+				
+					        <img 
+					            className={props.hasBorder ? styles.avatarWithBorder : styles.avatar } 
+					            src={props.src} 
+					        />
+				
+					OBS: Problema é que ficou tudo sem bordas, pois no Post por exemplo não foi enviado a propriedade 
+					        hasBorder e como essa props não tem um valor Default, não ira mostrar a borda
+					        
+					        ### Vamos passar a propriedade hasBorder com o valor true no Post
+					        
+					        		import { Avatar } from './Avatar'
+							import { Comment } from './Comment'
+							import styles from './Post.module.css'
+							export function Post() {
+							    return(
+							     
+							        <article className={styles.post}>
+							            <header>
+							                <div className={styles.author}>
+
+								<Avatar hasBorder={true} src="https://github.com/Abmaellf.png"/>
+								...
+						Com isso podemos identificar que agora os avatar dos Post contem as bordas
+		
+			              1.2.3 -   Podemos OMITIR o valor da propriedade hasBorder pois por padrão o seu valor será true
+			              
+			              	<Avatar   hasBorder  src="https://github.com/Abmaellf.png"/>
+			              
+			              1.2.4 -  Podemos também que por PADRÃO todos os avatar, que não receber a propriedade hasBorder TENHA ESSA PROPRIEDADE
+			              COMO {true} 
+			              
+			              		# Para isso em nosso Post podemos remover a propriedade hasBorder
+			              		
+			              			<Avatar src="https://github.com/Abmaellf.png"/>
+			              		
+			              		# Em nosso component Avater, temos duas forma de adicionar a props como default
+			              		
+			              			1.2.4.1 - Um constante definindo false até mesmo se não for enviada
+			              			
+			              				import styles from './Avatar.module.css';
+							export function Avatar(props) {
+
+							    const hasBorder = props.hasBorder !== false;
+							    return (
+							        <img 
+							            className={hasBorder ? styles.avatarWithBorder : styles.avatar } 
+							            src={props.src} 
+							        />
+							    )
+							}
+						1.2.4.2 - Podemos usar o conceito de DESESTRUTURAÇÃO  COM OBJETOS,  PARA APLICAR VALORES 
+						               DEFAULT
+						
+							Podemos excluir a linha a baixo:
+								const hasBorder = props.hasBorder !== false;
+								
+							Dentro do parametro do componente Avatar ({ }), vamos buscar apenas os propriedades 
+							hasBorder e src, nesse momento podemos definir um valor padrão 	
+								
+								import styles from './Avatar.module.css';
+								export function Avatar({hasBorder = true, src}) {
+
+								    return (
+								        <img 
+								            className={hasBorder ? styles.avatarWithBorder : styles.avatar } 
+								            src={src} 
+								        />
+								    )
+								}
+###############################################################
+		❯ git status
+		No ramo main
+		Your branch is up to date with 'origin/main'.
+
+		Changes not staged for commit:
+		  (utilize "git add <arquivo>..." para atualizar o que será submetido)
+		  (use "git restore <file>..." to discard changes in working directory)
+			modified:   01-fundamentos-reactjs.ts
+			modified:   src/components/Comment.jsx
+			modified:   src/components/Post.jsx
+			modified:   src/components/Post.module.css
+			modified:   src/components/Sidebar.jsx
+			modified:   src/components/Sidebar.module.css
+
+		Arquivos não monitorados:
+		  (utilize "git add <arquivo>..." para incluir o que será submetido)
+			src/components/Avatar.jsx
+			src/components/Avatar.module.css
+
+		nenhuma modificação adicionada à submissão (utilize "git add" e/ou "git commit -a")
+
+
+feat(1-2-11 -Componente. Avatar )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
