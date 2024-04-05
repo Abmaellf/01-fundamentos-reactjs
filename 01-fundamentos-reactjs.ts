@@ -1765,12 +1765,48 @@ Publicado há 1h
 
 		nenhuma modificação adicionada à submissão (utilize "git add" e/ou "git commit -a")
 
+	Commit
+	feat(1-2-11 -Componente. Avatar )
 
-feat(1-2-11 -Componente. Avatar )
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   12-Aplicando responsividad
 
+	###	Vamos visualizar no navegador de forma responsiva
+	
+	Em App.module.css
+	
+		Logo apos as estilização do .wrapper, vamos adicionar a estilização abaixo:
+		
+		.wrapper {
+		  max-width: 70rem;
+		  margin: 2rem auto;
+		  padding: 0 1rem;
 
+		  display: grid;
+		  grid-template-columns: 256px 1fr;
+		  gap: 2rem;
+		  align-items: flex-start;
+		} 
 
-
+		@media (max-width:768px) {
+		
+		 html {
+		    font-size: 87.5%;
+		  }
+		  .wrapper {
+		    grid-template-columns: 1fr;
+		  }
+		}
+		
+	###  Ajuste da fonte quando for responsivo
+	
+	Não podemos utilizar em pixes, poi isso é valor bruto e o usuário não poderar alterar
+	
+	16 ->  100%
+	14 - x
+	14*100/16  = 87,5 %
+	
 
 
 
