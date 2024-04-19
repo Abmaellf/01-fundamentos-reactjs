@@ -5,10 +5,11 @@
 	Github
 				
 	git config  user.name "Abmaellf"
-        git config  user.email "abmael.ninha@gmail.com"
-        git branch -M main
+        	git config  user.email "abmael.ninha@gmail.com"
+        	git branch -M main
         
 		githubToken
+		FIGMA https://www.figma.com/file/vHECPKU1eaRfRDfVkyJSgj/Ignite-Feed-(Community)-Abmael?type=design&mode=design&t=mBXEltbDMFTmAZxI-0
        
 
 ==========================================================================================================================================	
@@ -18,9 +19,9 @@
 	
 	RENDERING PATTERNS
 	
-		SSR - Server Side Rendering :
+		SSR - Server Side Rendering:
 		
-				 - Uma aplicação
+				 -  Uma aplicação
 				 -  paginas staticas geradas no servidor
 		
 		SPA - Single Page Application:
@@ -296,7 +297,7 @@
 				    --gray-900:#121214;
 
 				    --green-500: #00875f
-				    --green-300: 
+				     --green-300: #00B37E;
 				}
 
 				* {
@@ -312,10 +313,10 @@
 				}
 				
 				body, input, textarea, button {
-				font-family: 'Roboto', sans-serif;
-			        font-weight: 400;
-			        font-size: 1rem;
-			 }
+				        font-family: 'Roboto', sans-serif;
+				        font-weight: 400;
+				        font-size: 1rem;
+				}
 				
 		
 		
@@ -349,7 +350,7 @@
 	https://www.figma.com/file/vHECPKU1eaRfRDfVkyJSgj/Ignite-Feed-(Community)-Abmael?type=design&mode=design&t=mBXEltbDMFTmAZxI-0
 	
 	E exportamos a imagem do header
-	## Salvamos a imagem dentro do projeto na pasta src / assets
+	## Salvamos a imagem dentro do projeto na pasta src / assets            /////// AQUI //////////////
 	
 	## Em Header.jsx
 	
@@ -449,8 +450,24 @@
 						      <div className={styles.wrapper}>
 
 						      </div>	
-	
-	
+	    ### Vamos copiar o endereço da imagem
+	    
+	    	## Vamos acessar o site :
+	    	
+	    		https://unsplash.com/pt-br
+	    	
+	    	## Abrir a imagem em um tamanho grande
+	    		https://unsplash.com/pt-br/fotografias/um-carro-esportivo-vermelho-estacionado-em-um-quarto-branco-yC__dEIrAJk
+	    	
+	    	## Copiar o endereço da imagem 
+	    		https://images.unsplash.com/photo-1711211095357-076c9784660d
+	    		?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+
+		## Podemos diminuir o tamanho da exibição
+		
+			Em:                80&w=1974&
+			Trocar por:   40&w=500&
+			
 	      ###  Incluindo o asaide e organizando a main
 	      
 	      				'		import { Post } from './Post';
@@ -643,7 +660,7 @@
 							    display: flex;
 							    flex-direction: column;
 							    align-items: center;
-							    margin-top: -2rem;
+							    margin-top: -2rem;      // AVISÃO QUE TEMOS  É DE UMA IMAGEM EM CIMA DE OUTRA
 							}
 							
 				+++ Logo apos o .profile
@@ -863,7 +880,7 @@
   	git commit --amend -m" feat(1-2 6-Componente. Post)"
 ==========================================================================================================================================
 ==========================================================================================================================================	
-	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|     7-Estilizações do Post   	
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação |    7-Estilizações do Post   	
 	
 	### Estilizamos o Post.module.css
 	
@@ -877,7 +894,6 @@
 			.post + .post {
 			    margin-top: 2rem;
 			}
-
 
 			.post > header {
 			    display: flex;
@@ -1497,14 +1513,14 @@ Publicado há 1h
 ==========================================================================================================================================	
 	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   11-Componente. Avatar
 			
-	Os componentes de avatar são muitos parecidos, no react existe 2 grandesmomentos que criamos componentes
+	Os componentes de avatar são muitos parecidos, no react existe 2 grandes momentos que criamos componentes
 		1 - O mais fácil quando alguma coisa repete em tela
 		2 - O segundo é quando você consegue tirar algo de um componente maior, sem que o componente para de funcionar
 	
 	Exemplo:
-		Temos uma tela que lista todos os usuários, nessa tela temos um butão para fazer upload de usuários em massa de usuários ou qualquer outra coisa
+		Temos uma tela que lista todos os usuários, nessa tela temos um button para fazer upload de usuários em massa de usuários ou qualquer outra coisa
 		O botão tem um funcionamento complexo que não existe a necessidade de estar nesse grande component então vamos mover essa complexidade do 
-		botão para um outro component, desacoplando de um component criando criando outro
+		botão para um outro component, desacoplando de um component  criando outro
 	
 	### Vamos criar dentro da pasta component um novo component chamado Avatar junto com o seu css
 	
@@ -1709,7 +1725,7 @@ Publicado há 1h
 			              		
 			              			<Avatar src="https://github.com/Abmaellf.png"/>
 			              		
-			              		# Em nosso component Avater, temos duas forma de adicionar a props como default
+			              		# Em nosso component Avatar, temos duas forma de adicionar a props como default
 			              		
 			              			1.2.4.1 - Um constante definindo false até mesmo se não for enviada
 			              			
@@ -1743,6 +1759,16 @@ Publicado há 1h
 								        />
 								    )
 								}
+								
+						1.2.4.3 - Então em Comment o Avatar tem que receber o hasBorder = false
+						
+						
+						export function Comment() {
+						    return (
+						        <div className={styles.comment}>
+
+						        <Avatar hasBorder={false} src="https://github.com/Abmaellf.png" alt=''/>
+
 ###############################################################
 		❯ git status
 		No ramo main
@@ -1770,7 +1796,7 @@ Publicado há 1h
 
 ==========================================================================================================================================
 ==========================================================================================================================================	
-	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   12-Aplicando responsividad
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   12-Aplicando responsividade
 
 	###	Vamos visualizar no navegador de forma responsiva
 	
@@ -1807,17 +1833,171 @@ Publicado há 1h
 	14 - x
 	14*100/16  = 87,5 %
 	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP | 1-Iniciando com React  | 3-Os motores do react  |   1-Iterando no JSX
+
+	Iniciado
+	# Analisando as informações do Post
+	
+	//  author> { avatar_url: " " , name: " " , role: " " }
+	// publishedAt: Date
+	// content: String
+
+	##  Vamos copiar esse conteudo acima, vamos acessar o App.jsx  e colar pra lembrar
+	
+	. . .
+		import './global.css'
 
 
+		 	 //  author> { avatar_url: " " , name: " " , role: " " }
+			//  publishedAt: Date
+			//  content: String
+		  
+		export function App()  {
+	. . .
+
+	## Criando a constante de post
+	
+			const post = [
+			    {
+			      id:1,
+			      author: {
+			        avatarUrl: 'https://github.com/Abmaellf.png',
+			        name: 'Abmael Ferreira',
+			        role: 'Desenvolvedor'
+			      },
+			      content: [
+			        {type: 'paragraph', content: 'Fala galera',},
+			        {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da 
+			        Rocketseat. O nome do projeto é DoctorCare 🚀'},
+			        {type: 'link', content: 'jane.design/doctorcare'},
+			      ],
+			      publishedAt: new Date('2022-05-03 20:00:00'),
+			    },
+
+			    {
+			      id:2,
+			      author: {
+			        avatarUrl: 'https://github.com/maykbrito.png',
+			        name: 'Abmael Ferreira',
+			        role: 'Desenvolvedor'
+			      },
+			      content: [
+			        {type: 'paragraph', content: 'Fala galera',},
+			        {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da 
+			        Rocketseat. O nome do projeto é DoctorCare 🚀'},
+			        {type: 'link', content: 'jane.design/doctorcare'},
+			      ],
+			      publishedAt: new Date('2022-05-03 20:00:00'),
+			    },
+			  ]
 
 
+	### Vamos iterar em nossos posts com o forEach   onde podemos usar, mas não é o intuito pois o mesmo não tem retorno
+	
+		<main>
+		              {
+		                postMessage.forEach(post => {
+
+		                  <Post />
+		                  
+		                })
+		              }             
+
+		</main>
+
+	### Arquivo com pleto do App
+	
+			/* eslint-disable react/jsx-key */
+			import { Header } from './components/Header';
+			import styles from './App.module.css';
+			import { Sidebar } from './components/Sidebar';
+			import { Post } from './components/Post';
+
+			import './global.css'
 
 
+			  //  author> { avatar_url: " " , name: " " , role: " " }
+				//  publishedAt: Date
+				//  content: String
+
+			  // Vamos figurar como se estivesse vindo direto de uma API
+
+			  const posts = [
+			    {
+			      id:1,
+			      author: {
+			        avatarUrl: 'https://github.com/Abmaellf.png',
+			        name: 'Abmael Ferreira',
+			        role: 'Desenvolvedor'
+			      },
+			      content: [
+			        {type: 'paragraph', content: 'Fala galera',},
+			        {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, 
+			        evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+			        {type: 'link', content: 'jane.design/doctorcare'},
+			      ],
+			      publishedAt: new Date('2022-05-03 20:00:00'),
+			    },
+
+			    {
+			      id:2,
+			      author: {
+			        avatarUrl: 'https://github.com/maykbrito.png',
+			        name: 'Abmael Ferreira',
+			        role: 'Desenvolvedor'
+			      },
+			      content: [
+			        {type: 'paragraph', content: 'Fala galera',},
+			        {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, 
+			         evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+			        {type: 'link', content: 'jane.design/doctorcare'},
+			      ],
+			      publishedAt: new Date('2022-05-03 20:00:00'),
+			    },
+			  ]
+
+			export function App() {
+
+			  return (
+			    <>
+			      <Header/>
+
+			      <div className={styles.wrapper}>
+
+			        <Sidebar />
+
+			        <main>
+			              {posts.map( post => {
+			                return(
+			                  <Post
+				author={post.author}
+				content={post.content}
+				publishedAt={post.publishedAt}
+			                  />
+			                )
+			              }
+
+			              )}            
+
+			        </main>
+			      </div>
+
+			     
+			   </>
+			  )
+			}
 
 
+	#### Agora vamos acessa o Post.jsx e passar propiedades na função,  para apenas executar um console.log para verificar se esta passando os dados
+	
+				
+		export function Post(props) {
 
-
-
+		    console.log(props);
+		    return(
+		     
 
 
 
