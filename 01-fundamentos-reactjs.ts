@@ -1998,6 +1998,218 @@ Publicado há 1h
 		    console.log(props);
 		    return(
 		     
+git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 
 
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP | 1-Iniciando com React  | 3-Os motores do react  |   2-Propriedades do Post
+	
+	
+	### Em Post.jsx   vamos alimentar dinamicamente alguns elementos com os valores da propriedades, começando pelo author
+	
+		import { Avatar } from './Avatar'
+		import { Comment } from './Comment'
+		import styles from './Post.module.css'
+
+		export function Post({author}) {
+
+		    
+		    return(
+		     
+		        <article className={styles.post}>
+		            <header>
+		            
+		            <div className={styles.author}>
+
+		      +++    <Avatar src={author.avatarUrl}/>
+
+			<div className={styles.authorInfo}>
+
+		       +++    	    <strong>{author.name}</strong>
+		       +++    	    <span>{author.role}</span>
+			    
+			</div>
+
+		                </div>
+		                
+		                 . . . 
+	
+	#### Agora alem do author vamos passar a propriedade publishedAt na desestruturação
+	
+		export function Post({author, publishedAt}) {   . . . 	
+	
+	### Vamos criar uma constante para receber os dados do Intl
+	
+	
+		 const publishedAtDateFormatted = new Intl.DateTimeFormat('pt-BR',{
+		        day: '2-digit',
+		        month: 'long',
+		        hour: '2-digit',
+		        minute: '2-digit',
+		    }).format(publishedAt)
+		    
+	### No retorno vamos passa em time a constante acima
+	
+							
+				export function Post({author, publishedAt}) {
+				    
+ == PASSAR ESSA CO NSTANTE EM BAIXO ==>	    const publishedAtDateFormatted = new Intl.DateTimeFormat('pt-BR',{
+				        day: '2-digit',
+				        month: 'long',
+				        hour: '2-digit',
+				        minute: '2-digit',
+				    }).format(publishedAt)
+				    
+				    return(
+				     
+				        <article className={styles.post}>
+				            <header>
+				                <div className={styles.author}>
+
+					<Avatar src={author.avatarUrl}/>
+
+					<div className={styles.authorInfo}>
+
+					    <strong>{author.name}</strong>
+					    <span>{author.role}</span>
+					</div>
+
+				                </div>
+
+				                <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>
+				++++	{publishedAtDateFormatted}
+				                </time>
+				            </header>
+	
+	#### Vamos instalar a date-fns
+	
+		npm i date-fns
+		
+	### Excluir tudo referente ao intl  deixando apenas a constante:
+	
+		RETIRADO
+		
+			= new Intl.DateTimeFormat('pt-BR',{
+			        day: '2-digit',
+			        month: 'long',
+			        hour: '2-digit',
+			        minute: '2-digit',
+			    }).format(publishedAt)
+		RETIRADO
+
+
+	### Importar algumas funções de dentro deo fns
+	
+		import { format } from 'date-fns';
+		
+	### Ainda no Post Podemos a tribuir a chamada do metodo para o publishedDateFormatted
+	
+	//Referencia     https://date-fns.org/                                        https://date-fns.org/v3.6.0/docs/format
+	
+		import { Avatar } from './Avatar'
+		import { Comment } from './Comment'
+		import styles from './Post.module.css'
+		import { format} from 'date-fns'
+
+		export function Post({author, publishedAt}) {
+		    
+	+++++	    const publishedAtDateFormatted = format(publishedAt, "d 'de' LLLL 'ás' H:mm'h'" )
+		    
+		    return(
+		     
+		        <article className={styles.post}>
+	
+	#### Ajustando para nossa localidade do nosso idioma, vamos importar o ptBR de dentro do date-fns/locale/pt-BR
+	
+		import ptBR from 'date-fns/locale/pt-BR'
+		
+	### Agora na função format no terceiro parametro vamos envia um objeto com o parametro locale: ptBR
+	
+		const publishedAtDateFormatted = format(publishedAt, "d 'de' LLLL 'ás' H:mm'h'", {
+		        locale: ptBR,
+		    } )
+		    
+	### Invertendo a utilização da variavel publishedAt para o title
+	
+		               **** Antes *****
+		               <time title='' dateTime='2024-01-27 15:05:00'>
+			{publishedAtDateFormatted}
+		                </time>
+		                
+		                **** Depois
+		                   <time title={publishedAtDateFormatted} dateTime='2024-01-27 15:05:00'>
+			
+		                </time>
+	### Vamos criar uma nova constante chamada publishedDateRelativeToNow
+		
+		const publishedDateRelativeToNow = 
+		
+	### Vamos utilizar outra função do fns chamada formatDistanceToNow  e vamos atribuir essa função para a nossa constante publishedDateRelativeToNow
+		
+		import { format, formatDistanceToNow } from 'date-fns'
+		
+		...
+		
+			 const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+			        locale: ptBR,
+			        addSuffix: true
+
+			    })
+		...
+		
+		<time title={publishedAtDateFormatted} dateTime='2024-01-27 15:05:00'>
+                   
+		{publishedDateRelativeToNow}
+		
+	                </time>
+	
+	### Agora precisamos formatar o dateTime de dentro da tag time, para isso temos um recurso do próprio javascript
+	
+		   <time title={publishedAtDateFormatted} dateTime={publishedAt.toISOString()}>
+	                   
+			{publishedDateRelativeToNow}
+		   </time>
+	
+		
+	### Agora vamos mostrar o conteudo que é um array
+	
+	## Vamos adicionar no parametro da função a props content
+	
+		export function Post({author, publishedAt, content}) {
+			... 
+	##3 dentro do conteudo vamos pegar o content.map
+	
+	
+		  <div className={styles.content}>
+
+		                {content.map(line => {
+
+			if(line.type === 'paragraph') {
+			    return <p>{ line.content }</p> ;
+			} else if (line.type === 'link') {
+			    return <p><a href='#'>{ line.content }</a></p> ;
+			}
+		                })}
+		                 
+		            </div>  {/* Div Fim do content */}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
