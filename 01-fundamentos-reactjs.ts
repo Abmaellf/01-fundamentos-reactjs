@@ -1,5 +1,5 @@
 	Inicio 2 de janeiro de 2024
-	
+		
 	ESSE ARQUIVO SEMPRE ESTARÁ DENTRO DO PROJETO E COM O NOME DO PROJETOS 
 	
 	Github
@@ -402,7 +402,7 @@
 			
 ==========================================================================================================================================
 ==========================================================================================================================================	
-	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	| 4-Componente. Sidebar
+	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|     4-Componente. Sidebar
 	
 		##  Em App.jsx
 		
@@ -600,7 +600,9 @@
 						}
 
 						.sidebar footer {
+						_________________________________________
 						    border-top: 1px solid var(--gray-600);
+						    
 						    margin-top: 1.5rem;
 						    padding: 1.5rem 2rem 2rem;
 						}
@@ -837,17 +839,21 @@
 
 						export function Post () {
 						    return (
-						        <article className={styles.post}>
-						            <header>
-							   <div className={styles.author}>
-							       <img className={styles.avatar} src="https://github.com/Abmaellf.png" />
-							       <div className={styles.authorInfo}>
-							           <strong> Abmael Ferreira</strong>
-							           <span> Web Develop</span>
-							       </div>
-							   </div>
-						            </header>
-						        </article>
+						       <article className={styles.post}>
+						           | <header>
+						           |	   |<div className={styles.author}>
+						           |  	   | 
+						           |	   |    <img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+						           |	   |   
+						           |	   |    |<div className={styles.authorInfo}>
+						           |	   |    |    <strong> Abmael Ferreira</strong>
+						           |	   |    |    <span> Web Develop</span>
+						           |	   |    |</div>
+						           |	   |    
+						           |	   |</div>
+						           | 	   
+						           | </header>
+						       </article>
 						    )      
 						}
 
@@ -901,7 +907,7 @@
 			    justify-content: space-between;
 			}
 
-			.post > time {
+			.post > header > time {
 			    font-size: 0.875rem;
 			    color: var(--gray-400);
 
@@ -1316,7 +1322,7 @@ Publicado há 1h
 ==========================================================================================================================================	
 	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|   10-Estilizações do Comentários
 		
-	### Vamos acerssar o Comment.module.css
+	### Vamos acerssar o Comment.module.css  ajustar o comment
 		.comment {
 		    margin-top: 1.5rem;
 		    display:flex;
@@ -1662,6 +1668,7 @@ Publicado há 1h
 				1.1 .1- Vamos passar uma propriedade chamada hasBorder={false} src=. . ./>
 				
 					<Avatar hasBorder={false} src="https://github.com/Abmaellf.png" alt=''/>
+					
 			1.2 EM NOSSO COMPONENT DE AVATAR, AGORA TEMOS ACESSO A ESSA PROPS
 			
 				1.2.1 - Vamos criar um estilo em src/components/Avatar.module.css
@@ -1713,11 +1720,13 @@ Publicado há 1h
 								<Avatar hasBorder={true} src="https://github.com/Abmaellf.png"/>
 								...
 						Com isso podemos identificar que agora os avatar dos Post contem as bordas
-		
+			           -------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 			              1.2.3 -   Podemos OMITIR o valor da propriedade hasBorder pois por padrão o seu valor será true
 			              
 			              	<Avatar   hasBorder  src="https://github.com/Abmaellf.png"/>
-			              
+			            
+			            
+			            --------------------------------------------------------------------------------------------------------------------------------------------------------------------  
 			              1.2.4 -  Podemos também que por PADRÃO todos os avatar, que não receber a propriedade hasBorder TENHA ESSA PROPRIEDADE
 			              COMO {true} 
 			              
@@ -1726,7 +1735,8 @@ Publicado há 1h
 			              			<Avatar src="https://github.com/Abmaellf.png"/>
 			              		
 			              		# Em nosso component Avatar, temos duas forma de adicionar a props como default
-			              		
+			              			
+			              			-------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 			              			1.2.4.1 - Um constante definindo false até mesmo se não for enviada
 			              			
 			              				import styles from './Avatar.module.css';
@@ -1740,6 +1750,7 @@ Publicado há 1h
 							        />
 							    )
 							}
+						-------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 						1.2.4.2 - Podemos usar o conceito de DESESTRUTURAÇÃO  COM OBJETOS,  PARA APLICAR VALORES 
 						               DEFAULT
 						
@@ -1747,7 +1758,7 @@ Publicado há 1h
 								const hasBorder = props.hasBorder !== false;
 								
 							Dentro do parametro do componente Avatar ({ }), vamos buscar apenas os propriedades 
-							hasBorder e src, nesse momento podemos definir um valor padrão 	
+							hasBorder e src, nesse momento é que podemos definir um valor padrão 	
 								
 								import styles from './Avatar.module.css';
 								export function Avatar({hasBorder = true, src}) {
@@ -1759,7 +1770,7 @@ Publicado há 1h
 								        />
 								    )
 								}
-								
+						-------------------------------------------------------------------------------------------------------------------------------------------------------------------- 		
 						1.2.4.3 - Então em Comment o Avatar tem que receber o hasBorder = false
 						
 						
@@ -1990,7 +2001,8 @@ Publicado há 1h
 			}
 
 
-	#### Agora vamos acessa o Post.jsx e passar propiedades na função,  para apenas executar um console.log para verificar se esta passando os dados
+	#### Agora vamos acessa o Post.jsx e passar propiedades na função,  para apenas executar um console.log para verificar se esta passando os dados 
+	#### NÃO SERÁ POSSÍVEL  ENXERGAR NADA, TUDO IRA SUMIR
 	
 				
 		export function Post(props) {
@@ -2082,6 +2094,12 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 				                </time>
 				            </header>
 	
+	###   ESSE É O FORMATO QUE FOI IMPRESSO NO NAVEGADOR
+	
+		25 de maio às 20:00
+		
+	######   Vamos utilizar o date-fns que é mais legível que o Intl
+	
 	#### Vamos instalar a date-fns
 	
 		npm i date-fns
@@ -2114,7 +2132,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 
 		export function Post({author, publishedAt}) {
 		    
-	+++++	    const publishedAtDateFormatted = format(publishedAt, "d 'de' LLLL 'ás' H:mm'h'" )
+	+++++	    const publishedAtDateFormatted = format(publishedAt, "d 'de' LLLL 'ás' H:mm'h'" )    ## escapar as string
 		    
 		    return(
 		     
@@ -2172,7 +2190,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		   </time>
 	
 		
-	### Agora vamos mostrar o conteudo que é um array
+	### Agora vamos mostrar o conteudo content que é um array
 	
 	## Vamos adicionar no parametro da função a props content
 	
@@ -2180,7 +2198,28 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 			... 
 	##3 dentro do conteudo vamos pegar o content.map
 	
+	### Vou retirar todo esse conteudo abaixo:
 	
+				 <p>Fala galera</p>
+
+				                <p>
+					Acabei de subir mais um projeto no meu portfolio. É um projeto que fiz no NLW Return, evento da 
+					Rocketseat. O nome do projeto é DoctorCare.
+				                </p>
+
+				                <p> <a href='#'>jane.design/docktorcare</a></p>
+
+				                <p>
+					<a href='#'>#novoprojeto</a>
+				                </p>
+
+				                <p>
+				                  <a href='#'>#novoprojeto</a>
+				                  <a href='#'>#nlw</a>
+				                  <a href='#'>#rocketseat</a>
+				                </p>
+				                
+	### Dentro da div styles.content vamos adicionar o conteudo abaixo			                
 		  <div className={styles.content}>
 
 		                {content.map(line => {
@@ -2196,20 +2235,128 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		
 	
 	
+==========================================================================================================================================
+==========================================================================================================================================	
+	Nível 01-UP-Fundamentos-UP | 1-Iniciando com React  | 3-Os motores do react  |   3 - Estado (useState)
+	
+	Conceito super importante que é o estado	
+	
+	### Vamos acessar o nosso component Post e apos a importações vamos criar uma constante de array chamada comments
+		ATENÇÃO CORREÇÃO IMPORTANTE ESSA CONSTANTE DEVE SER CRIADA DENTRO DA FUNÇÃO DE CRIAÇÃO DO COMPONENT
+	
+		import styles from './Post.module.css'
+		
+		
+	+++ *CORREÇÃO *  . . . export function Post () {
+					const comments = [
+					    1,
+					    2,
+					    3,
+					];
+			. . .
+			
+	### Agora dentro da div commentList vamos percorrer essa nossa lista comments e para cada comments vamos chamar um component Comment
+	
+		          <div className={styles.commentList}>
+		                {comments.map(comment => {
+			return <Comment />
+		                })}
+		            </div>
 	
 	
+	### Como que eu adiciono um novo comment ?
+		
+		1 - Não vamos usar o texto digitado no textarea
+		2-Qunado o usuário clicar no botão, tab ou o enter no textarea
+			E não podemos utilizar somente o onclick no botão justamente por que pode vir de vários eventos
+		3 - Para ouvir eventos vamos utilizar o onClick com o "C" maiusculo do proprio html, mas no formulario usaremos onSubmit passando o nome da função
 	
+		
+      		            <form onSubmit="" className={styles.commentForm}>
+
+		                <strong> Deixe seu feedback</strong>
 	
+	### Vamos criar uma função que ira ser chamada no evento do formulario, logo apos a constante publichedDateRelativeToNow
 	
+		### padrão do Diego, quando a função for um evento diparado do usuário então ele adiciona um handle na nomenclatura da função
+		
+		handleCreateNewComment()
+		
+	### Agora vamos chamar essa função no nosso formulario
 	
+		
+	            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
+
+	                <strong> Deixe seu feedback</strong>
+
+	                <textarea
+	                 placeholder="Deixe um comentário"
+	                />
+	               
+	                <footer>
+		<button type="submit"> 
+		    Publicar
+		</button>
+	                </footer>
+	            </form>
+	            
+          #### Indentificamos que a ação foi muito rápida pois é um comportamento padrão do html , redirecionar o usuário par outro lugar, para isso vamos  passar dentro da
+          #### da função uma outra função chamada event.preventDefault()
+          
+          	function handleCreateNewComment() {
+	        event.preventDefault()
+	        console.log("oi");
+	    }
+
+	#### identificamos no console.log que esta digitanto oi
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+        #### Agora queremos adicionar uma nova posição no array de comments, para isso na função handleCreateNewComment vamos chamar o 
+        
+        	comments.push(3)  e o console.log(comments)
+        
+        
+        		  function handleCreateNewComment() {
+        
+		        event.preventDefault()
+
+		        comments.push(3);
+
+		        console.log(comments)
+		    }
+		    
+        #### Mas em nossa lista de comments no navegador so aparecem 2 comments porque?
+        ### No react temos o conceito de estado são variaveis que o componente ira monitorar quando ela mudar
+        ## Para isso vamos criar um estado que é dentro do nosso component vamos criar uma constante que  ira receber uma useState([1,2])
+        ## Dentro dos parentes vamos passar a primeiro parametro que será o valor inicial 
+        ## E para pegar o valor de estados vamos utilizar o conceito de desestruturação pois useState sempre retorna um array com duas posições
+        
+        	const [ comments, ] = useState([ 1, 2, ])
+        	
+        ## Na segunda posição vamos receber uma função par alterar o valor de comentários
+        
+        ## Essa função alem de alterar avisa que essa variavel foi alterada
+        
+        	const [ comments, setComments ] = useState([ 1, 2, ])
+        
+        
+        ### Agora na função handleCreateNewComment vamos retirar a chamado do PUSH E chamar somente o setComment que é a variável que altera e a visa que a variavel 
+                 comments foi alterada. Essa utilização descreve o conceito de imutabiidade
+        
+        
+        
+		         function handleCreateNewComment() {
+		        
+			        event.preventDefault()
+
+			        setComments([1,2,3])
+
+			       
+		       }
+		       
+     ### Mas gora só esta adicionando até  3        
+        
+     ### Na função 	handleCreateNewComment, setComments vamos utilizar o spred operations . . . comments para pegar todos os tamanhos que existe no array
+     ###  No segundo parametro vamos pegar o tamanho do array comments.length mais 1 para sempre quando chamar a função adicionar mais um comentarios
+     
+     	 setComments([...comments, comments.length+1]);
 
