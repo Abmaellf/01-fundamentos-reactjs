@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
@@ -13,7 +14,12 @@ import { useState } from 'react'
 
 export function Post({author, publishedAt, content}) {
 
-    const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState([
+        "Post muito bacana"
+    ]);
+
+    const [newCommentText, setNewCommentText] = useState('');
+
     
     const publishedAtDateFormatted = format(publishedAt, "d 'de' LLLL 'ás' H:mm'h'", {
         locale: ptBR,
@@ -28,10 +34,14 @@ export function Post({author, publishedAt, content}) {
     function handleCreateNewComment() {
         
         event.preventDefault()
-
-        setComments([...comments,comments.length+1]);
-
+        setComments([...comments, newCommentText]);
+        setNewCommentText('');
     }
+
+    function handleNewCommentChange() {
+        setNewCommentText(event.target.value)
+    }
+
     
     return(
      
@@ -44,6 +54,7 @@ export function Post({author, publishedAt, content}) {
                     <div className={styles.authorInfo}>
 
                         <strong>{author.name}</strong>
+
                         <span>{author.role}</span>
                     </div>
 
@@ -52,18 +63,23 @@ export function Post({author, publishedAt, content}) {
                 <time title={publishedAtDateFormatted} dateTime={publishedAt.toISOString()}>
                    
                     {publishedDateRelativeToNow}
+                    
                 </time>
             </header>
 
             <div className={styles.content}>
 
-                {content.map(line => {
+                {
+                    content.map(line => {
 
-                    if(line.type === 'paragraph') {
-                        return <p>{ line.content }</p> ;
-                    } else if (line.type === 'link') {
-                        return <p><a href='#'>{ line.content }</a></p> ;
-                    }
+                        if(line.type === 'paragraph') {
+
+                            return <p>{ line.content }</p> ;
+
+                        } else if (line.type === 'link') {
+
+                            return <p><a href='#'>{ line.content }</a></p> ;
+                        }
                 })}
                  
             </div>  {/* Div Fim do content */}
@@ -74,7 +90,11 @@ export function Post({author, publishedAt, content}) {
                 <strong> Deixe seu feedback</strong>
 
                 <textarea
+
+                 name='comment'
                  placeholder="Deixe um comentário"
+                 onChange={handleNewCommentChange}
+                 value={newCommentText}
                 />
                
                 <footer>
@@ -85,9 +105,13 @@ export function Post({author, publishedAt, content}) {
             </form>
 
             <div className={styles.commentList}>
-                {comments.map(() => {
-                    return <Comment />
+
+                {comments.map(comment => {
+
+                    return <Comment content={comment}  />
+
                 })}
+                
             </div>
 
         </article>

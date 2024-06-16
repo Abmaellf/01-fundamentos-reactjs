@@ -11,7 +11,7 @@
 		githubToken
 		FIGMA https://www.figma.com/file/vHECPKU1eaRfRDfVkyJSgj/Ignite-Feed-(Community)-Abmael?type=design&mode=design&t=mBXEltbDMFTmAZxI-0
        
-
+	
 ==========================================================================================================================================	
 ==========================================================================================================================================
 	Nível 01-UP-Fundamentos-UP |  1-Iniciando com React | 2-Fundamentos do ReactJS
@@ -295,8 +295,7 @@
 				    --gray-700:#29292e;
 				    --gray-800:#202024;
 				    --gray-900:#121214;
-
-				    --green-500: #00875f
+				    --green-500: #00875f;
 				     --green-300: #00B37E;
 				}
 
@@ -668,7 +667,7 @@
 				+++ Logo apos o .profile
 				
 					 		     .avatar {
-								    width: 3ren;
+								    width: 3rem;
 								    height: 3rem;
 								    border-radius: 8px; 
 								     border:  4px solid var(--gray-800);
@@ -767,6 +766,7 @@
 					}					
 	
 		###  Adicionando uma transisão no houver
+		
 			 Em src/components/Sidebar.module.css
 								
 					.sidebar footer a {
@@ -787,6 +787,7 @@
 						    gap: 0.5rem;
 
 					+++     transition: color 0.1s, background-color 0.1s;
+					/*### obs:  as transition podem ser feitas na cor e no plano de fundo, sempre separando por virgula*/
 					}
 							
 ==========================================================================================================================================
@@ -895,6 +896,8 @@
 			    border-radius: 8px;
 			    padding:2.5rem;
 			}
+		## melhor fazer os ajustes referente a imagem, pra que as proximas estilizações, facam sentido
+			.author img {...}
 			
 			#### Pegar somente o primeiro post
 			.post + .post {
@@ -916,7 +919,7 @@
 
 			.author {
 			    display: flex;
-			    align-items: center;
+			    align-items: center;  //Alinha horizontalmente
 			    gap: 1rem;
 			}
 
@@ -938,7 +941,7 @@ Abmael FerreiraWeb Develop
 Publicado há 1h
 
 			.authorInfo strong{
-			    display: block;
+			    display: block;       /* O QUE AFETA O BLOCK*/
 			    color: var(--gray-100);
 			    line-height: 1.6;
 			}
@@ -957,34 +960,43 @@ Publicado há 1h
 		export function Post () {
 		    return (
 		        <article className={styles.post}>
+		        
 		            <header>
+		            
 		                <div className={styles.author}>
-			<img className={styles.avatar} src="https://github.com/Abmaellf.png" />
-			<div className={styles.authorInfo}>
-			    <strong> Abmael Ferreira</strong>
-			    <span> Web Develop</span>
+		                
+			         <img className={styles.avatar} src="https://github.com/Abmaellf.png" />
+			
+			         <div className={styles.authorInfo}>
+			
+			                        <strong> Abmael Ferreira</strong>
+			        
+			                        <span> Web Develop</span>
+			        
 			</div>
+			
 		                </div>
 
 		                <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h</time>
+		                
 		            </header>
 
-		           	<div className={styles.content}>
+++++++++++++++	           <div className={styles.content}>
 
-			                <p>Fala galera </p>
+	++++++		                <p>Fala galera </p>
+                    ++++++
+	++++++		                <p>
+	++++++			    Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLW Return, evento da Rocketseat.
+	++++++			    O nome do projeto é DoctorCare.
+	++++++		                </p>
 
-			                <p>
-				Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLW Return, evento da Rocketseat.
-				O nome do projeto é DoctorCare.
-			                </p>
-
-			                <p><a href='#'>jane.design/docktorcare</a></p>
+	++++++		                <p><a href='#'>jane.design/docktorcare</a></p>
 			                
-			                <p>
-				<a href='#'>#novoprojeto</a>{' '}
-				<a href='#'>#nlw</a>{' '}
-				<a href='#'>#rocketseat</a>{' '}
-			                </p>
+	++++++		                <p>
+	++++++			   <a href='#'>#novoprojeto</a>{' '}
+	++++++			   <a href='#'>#nlw</a>{' '}
+	++++++			   <a href='#'>#rocketseat</a>{' '}
+	++++++		                </p>
 			  </div>
 		        </article>
 		    )      
@@ -1214,8 +1226,7 @@ Publicado há 1h
 		++ Estrutura basica do Comment.jsx  com uma div que engloba tudo chamado 
 		  style.comment
 		
-			
-			
+						
 				
 			
 			import styles from './Comment.module.css'                           
@@ -1292,7 +1303,7 @@ Publicado há 1h
 	                </footer>
 		. . .
 	
-	##### Agora vamos acessar o nosso component de Post.jsx  e abaixo do form vamos adiccionar uma div chamada stycommetList
+	##### Agora vamos acessar o nosso component de Post.jsx  e abaixo do form vamos adiccionar uma div chamada styles.commetList
 	
 	
 		Fiz uma alteração na importação do style para styles
@@ -1363,19 +1374,19 @@ Publicado há 1h
 	
 	###  authorAndTime
 	
-			.authorAndTime strong {
-			    display:block;
-			    font-size:0.875rem;
-			    line-height:1.6;
-			}
+		.authorAndTime strong {
+		    display:block;
+		    font-size:0.875rem;
+		    line-height:1.6;
+		}
 
-			.authorAndTime time {
-			    display:block;
-			    font-size: 0.75rem;
-			    line-height:1.6;
-			    color: var(--gray-400);
+		.authorAndTime time {
+		    display:block;
+		    font-size: 0.875rem;
+		    line-height:1.6;
+		    color: var(--gray-400);
 
-			}
+		}
 	
 	####  Estilizar o botão 
 	
@@ -1521,7 +1532,7 @@ Publicado há 1h
 			
 	Os componentes de avatar são muitos parecidos, no react existe 2 grandes momentos que criamos componentes
 		1 - O mais fácil quando alguma coisa repete em tela
-		2 - O segundo é quando você consegue tirar algo de um componente maior, sem que o componente para de funcionar
+		2 - O segundo é quando você consegue tirar algo de um componente maior, sem que o componente pare de funcionar
 	
 	Exemplo:
 		Temos uma tela que lista todos os usuários, nessa tela temos um button para fazer upload de usuários em massa de usuários ou qualquer outra coisa
@@ -1720,7 +1731,8 @@ Publicado há 1h
 								<Avatar hasBorder={true} src="https://github.com/Abmaellf.png"/>
 								...
 						Com isso podemos identificar que agora os avatar dos Post contem as bordas
-			           -------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+			           ------------------------------------------------------------------------------------------------------------------------------------------------------------
+	2-PRIMEIRA FORMA 
 			              1.2.3 -   Podemos OMITIR o valor da propriedade hasBorder pois por padrão o seu valor será true
 			              
 			              	<Avatar   hasBorder  src="https://github.com/Abmaellf.png"/>
@@ -2002,7 +2014,6 @@ Publicado há 1h
 
 
 	#### Agora vamos acessa o Post.jsx e passar propiedades na função,  para apenas executar um console.log para verificar se esta passando os dados 
-	#### NÃO SERÁ POSSÍVEL  ENXERGAR NADA, TUDO IRA SUMIR
 	
 				
 		export function Post(props) {
@@ -2053,7 +2064,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 	
 	### Vamos criar uma constante para receber os dados do Intl
 	
-	
+	export function Post({author, publishedAt}) {
 		 const publishedAtDateFormatted = new Intl.DateTimeFormat('pt-BR',{
 		        day: '2-digit',
 		        month: 'long',
@@ -2248,33 +2259,42 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		
 		
 	+++ *CORREÇÃO *  . . . export function Post () {
-					const comments = [
-					    1,
-					    2,
-					    3,
-					];
-			. . .
+			const comments = [
+			    1,
+			    2,
+			    3,
+			];
+	. . .
 			
-	### Agora dentro da div commentList vamos percorrer essa nossa lista comments e para cada comments vamos chamar um component Comment
-	
-		          <div className={styles.commentList}>
-		                {comments.map(comment => {
-			return <Comment />
-		                })}
+	### Agora depois do form dentro da div commentList vamos percorrer essa nossa lista comments e para cada comments vamos chamar um component Comment
+			 </footer>
+	            </form>
+		           <div className={styles.commentList}>
+		 +++               {comments.map(comment => {
+		 +++	       return <Comment />
+		 +++          })}
 		            </div>
+	Podemos visualizar que  será exibido 3 comentário por Post
+	Podemos alterar na constante a quantidade e também será alterado na visualização dos comentários
 	
-	
+			const comments = [
+			    1,
+			];
+			
 	### Como que eu adiciono um novo comment ?
 		
 		1 - Não vamos usar o texto digitado no textarea
-		2-Qunado o usuário clicar no botão, tab ou o enter no textarea
+		
+		2-Quando o usuário clicar no botão, tab ou o enter no textarea
+		
 			E não podemos utilizar somente o onclick no botão justamente por que pode vir de vários eventos
-		3 - Para ouvir eventos vamos utilizar o onClick com o "C" maiusculo do proprio html, mas no formulario usaremos onSubmit passando o nome da função
+			
+		3 - Para ouvir eventos vamos utilizar o onClick com o "C" maiusculo do proprio html, mas no formulario usaremos /*  onSubmit  */ passando o nome da função
 	
 		
       		            <form onSubmit="" className={styles.commentForm}>
 
-		                <strong> Deixe seu feedback</strong>
+		                <strong> Deixe seu feedback</strong>   /
 	
 	### Vamos criar uma função que ira ser chamada no evento do formulario, logo apos a constante publichedDateRelativeToNow
 	
@@ -2287,7 +2307,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		
 	            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
 
-	                <strong> Deixe seu feedback</strong>
+	                <strong> Deixe seu feedback</strong>            /
 
 	                <textarea
 	                 placeholder="Deixe um comentário"
@@ -2325,26 +2345,24 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		    }
 		    
         #### Mas em nossa lista de comments no navegador so aparecem 2 comments porque?
-        ### No react temos o conceito de estado são variaveis que o componente ira monitorar quando ela mudar
-        ## Para isso vamos criar um estado que é dentro do nosso component vamos criar uma constante que  ira receber uma useState([1,2])
-        ## Dentro dos parentes vamos passar a primeiro parametro que será o valor inicial 
-        ## E para pegar o valor de estados vamos utilizar o conceito de desestruturação pois useState sempre retorna um array com duas posições
+        #### No react temos o conceito de estado são variaveis que o componente ira monitorar quando ela mudar
+        #### Para isso vamos criar um estado que é dentro do nosso component vamos criar uma constante que  ira receber uma useState([1,2])
+        #### Dentro dos parentes vamos passar a primeiro parametro que será o valor inicial 
+        #### E para pegar o valor de estados vamos utilizar o conceito de desestruturação pois useState sempre retorna um array com duas posições
         
         	const [ comments, ] = useState([ 1, 2, ])
         	
         ## Na segunda posição vamos receber uma função par alterar o valor de comentários
         
-        ## Essa função alem de alterar avisa que essa variavel foi alterada
+        ## Essa função alem de alterar, avisa que essa variavel foi alterada
         
         	const [ comments, setComments ] = useState([ 1, 2, ])
         
         
-        ### Agora na função handleCreateNewComment vamos retirar a chamado do PUSH E chamar somente o setComment que é a variável que altera e a visa que a variavel 
-                 comments foi alterada. Essa utilização descreve o conceito de imutabiidade
+        ### Agora na função handleCreateNewComment vamos retirar a chamado do PUSH E chamar somente o setComment que é a variável que altera e avisa que 
+                a  variavel   comments foi alterada. Essa utilização descreve o conceito de /* imutabiidade */
         
-        
-        
-		         function handleCreateNewComment() {
+                             function handleCreateNewComment() {
 		        
 			        event.preventDefault()
 
@@ -2355,8 +2373,15 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		       
      ### Mas gora só esta adicionando até  3        
         
-     ### Na função 	handleCreateNewComment, setComments vamos utilizar o spred operations . . . comments para pegar todos os tamanhos que existe no array
-     ###  No segundo parametro vamos pegar o tamanho do array comments.length mais 1 para sempre quando chamar a função adicionar mais um comentarios
+     ### 	Na função 	handleCreateNewComment, setComments vamos utilizar o spred operations . . . comments para pegar todos os tamanhos que existe no 
+     	array  
+     ### 	No segundo parametro vamos pegar o tamanho do array comments.length mais 1 para sempre quando chamar a função adicionar mais um comentarios
      
-     	 setComments([...comments, comments.length+1]);
+     	 setComments([...comments, comments.length +1 ]);
+     	 
+     	 
+     	 
+     	 
+     	 
+     	 
 
