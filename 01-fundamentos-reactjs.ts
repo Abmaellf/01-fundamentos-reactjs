@@ -1009,7 +1009,7 @@ Publicado há 1h
 			.content {
 			    line-height: 1.6;                  ### Altura da linha
 			    color: var(--gray-300);
-			    margin-top: 1.5rem;
+			    margin-top: 1.5rem;.post + post
 			}
 
 			.content p {
@@ -1037,19 +1037,20 @@ Publicado há 1h
 				
 ==========================================================================================================================================
 ==========================================================================================================================================	
-	Nível 01-UP-Fundamentos-UP |  2-Estrutura da aplicação	|    8-Formulário de comentários	
+	Nível 01-UP-Fundamentos-UP |  2 - Estrutura da aplicação	|    8 - Formulário de comentários	
 	
 		No html do Post
 		
 		## Post 
-			Vamos dar um enter depois da div do conteudo
-			+ Vamos criar um formulario com uma className styles.commentForm
+			Vamos dar um enter depois da div do conteudo:
 			
-			+ Um strong com um text "Deixe um comentário"
+			+  Vamos criar um formulario com uma className styles.commentForm
 			
-			+ Um textarea com um placeholder Deixe um comentário
+			+  Um strong com um text "Deixe um comentário"
 			
-			+ Um  button type submit escrito  Publicar
+			+  Um textarea com um placeholder Deixe um comentário
+			
+			+  Um  button type submit escrito  Publicar
 			
 				 </div>   <!-- Div fim do content
 
@@ -2031,6 +2032,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 	
 	### Em Post.jsx   vamos alimentar dinamicamente alguns elementos com os valores da propriedades, começando pelo author
 	
+	
 		import { Avatar } from './Avatar'
 		import { Comment } from './Comment'
 		import styles from './Post.module.css'
@@ -2077,7 +2079,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 							
 				export function Post({author, publishedAt}) {
 				    
- == PASSAR ESSA CO NSTANTE EM BAIXO ==>	    const publishedAtDateFormatted = new Intl.DateTimeFormat('pt-BR',{
+ == PASSAR ESSA CONSTANTE EM BAIXO ==>	    const publishedAtDateFormatted = new Intl.DateTimeFormat('pt-BR',{
 				        day: '2-digit',
 				        month: 'long',
 				        hour: '2-digit',
@@ -2128,7 +2130,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 		RETIRADO
 
 
-	### Importar algumas funções de dentro deo fns
+	### Importar algumas funções de dentro do fns
 	
 		import { format } from 'date-fns';
 		
@@ -2157,7 +2159,7 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 	
 		const publishedAtDateFormatted = format(publishedAt, "d 'de' LLLL 'ás' H:mm'h'", {
 		        locale: ptBR,
-		    } )
+		    } );
 		    
 	### Invertendo a utilização da variavel publishedAt para o title
 	
@@ -2230,15 +2232,20 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 				                  <a href='#'>#rocketseat</a>
 				                </p>
 				                
-	### Dentro da div styles.content vamos adicionar o conteudo abaixo			                
+	### Dentro da div styles.content vamos adicionar o conteudo abaixo	
+			                
 		  <div className={styles.content}>
 
 		                {content.map(line => {
 
 			if(line.type === 'paragraph') {
+			
 			    return <p>{ line.content }</p> ;
+			    
 			} else if (line.type === 'link') {
+			
 			    return <p><a href='#'>{ line.content }</a></p> ;
+			    
 			}
 		                })}
 		                 
@@ -2299,9 +2306,13 @@ git commit -m"feat(1 -  1  -  3  -  1-Iterando no JSX )"
 	### Vamos criar uma função que ira ser chamada no evento do formulario, logo apos a constante publichedDateRelativeToNow
 	
 		### padrão do Diego, quando a função for um evento diparado do usuário então ele adiciona um handle na nomenclatura da função
+			e dentro da funçãa vamos escrever um console.log
+			
+		function handleCreateNewComment() {
+			console.log('oi')
+		}
 		
-		handleCreateNewComment()
-		
+			
 	### Agora vamos chamar essa função no nosso formulario
 	
 		
