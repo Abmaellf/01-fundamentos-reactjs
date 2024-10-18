@@ -3,7 +3,16 @@ import { ThumbsUp, Trash } from 'phosphor-react'
 import styles from './Comment.module.css'
 import { Avatar } from './Avatar'
 
-export function Comment ({content}) {
+export function Comment ({content, onDeleteComment}) {
+    function handleDeleteComment () {
+        // console.log('deletar comentário')
+        onDeleteComment(content);
+    }
+
+    function handleAplaudirComment() {
+        console.log('Aplaudir comentário');
+    }
+    
     return (
         <div className={styles.comment}>
 
@@ -20,7 +29,7 @@ export function Comment ({content}) {
                             <time title='27 de Janeiro ás 15:05' dateTime='2024-01-27 15:05:00'>Publicado há 1h </time>
                         </div>
 
-                        <button title='Deletar comentario'>
+                        <button onClick={handleDeleteComment} title='Deletar comentario'>
                             <Trash size={24}/>
                         </button>
                         
@@ -31,7 +40,7 @@ export function Comment ({content}) {
                 </div>
 
                 <footer>
-                    <button>
+                    <button onClick={handleAplaudirComment}>
                        <ThumbsUp/> 
 
                        Aplaudir <span>20</span>
